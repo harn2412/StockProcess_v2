@@ -2,6 +2,7 @@
  lay phan ten dung cho vao duong dan khi lay du lieu"""
 
 import re
+import sqlite3
 
 
 def raw(url):
@@ -34,10 +35,11 @@ def main():
     # Duong dan de lay du lieu cac cong ty dang niem yet
     data_url = "http://s.cafef.vn/screener.aspx#data"
 
-    # Noi luu tap tin ket qua
+    # Noi luu ket qua
     pwd = os.getcwd()
-    filename = 'basestocks.csv'
+    filename = 'database.db'
     filepatch = os.path.join(pwd, filename)
+    table_name = "current_stocks"
 
     # Tao DataFrame tu du lieu cac cong ty thu duoc
     data = raw(data_url)
@@ -51,8 +53,9 @@ def main():
         lambda row: urlname(row['Symbol'], row['Url']), axis=1
     )
 
-    # Luu thanh file ket qua
-    data_df.to_csv(filepatch)
+    # Luu ket qua
+    conn = sqlite3.connect(filepatch)
+    data_df.to_sql(table_name, conn, if_exists="replace")
 
 
 if __name__ == '__main__':
