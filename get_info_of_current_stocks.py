@@ -54,8 +54,8 @@ def main():
     )
 
     # Luu ket qua
-    conn = sqlite3.connect(filepatch)
-    data_df.to_sql(table_name, conn, if_exists="replace")
+    with sqlite3.connect(filepatch) as conn:
+        data_df.to_sql(table_name, conn, if_exists="replace")
 
 
 if __name__ == '__main__':
