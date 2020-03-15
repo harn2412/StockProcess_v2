@@ -165,12 +165,13 @@ def main():
             )
 
             # time_type luc nay moi la class "type" chua phai Year hay Quarter
-            time_type = option_menu.get_opts_from_input(
+            _ = option_menu.get_opts_from_input(
                 user_input=usr_input_time_type,
                 options=options,
                 valid_choices="12",
                 multi=False
             )
+            time_type = _[0]  # vi gia tri tra ve la list trong khi chi can lay 1 gia tri thoi
 
             break
 
@@ -182,16 +183,18 @@ def main():
     separate_print("HOW MANY REPORTS")
 
     # tu class type chuyen ve obj tuong ung voi nam va quy nhap vao
-    time_type = TimeType.create_from_input(time_type)
+    time_type = TimeType.create_from_input(time_type, TimeType.Year, TimeType.Quarter)
 
     # so luong bao cao muon lay (tuong ung voi cac moc thoi gian hien tai va truoc do)
     report_num = int(input("Ban muon lay bao nhieu bao cao: "))
 
     for stock in stocks:
+        separate_print(stock)
         print(stock)
         for report in reports:
+            separate_print(report.name.upper())
             for i in range(0, report_num):
-                print(f"{1} - {report.name} - {time_type.prev(i)}")
+                print(f"{i} - {report.name} - {time_type.prev(i)}")
 
 
 if __name__ == '__main__':

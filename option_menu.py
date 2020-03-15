@@ -92,56 +92,9 @@ def get_opts_from_input(user_input, options, valid_choices, choice_all=None, mul
                     choice_all=choice_all)
 
 
-def test():
-    def foo1():
-        print("foo1")
-
-    def foo2():
-        print("foo2")
-
-    def foo3():
-        print("foo3")
-
-    def foo4():
-        print("foo4")
-
-    options = (foo1, foo2, foo3, foo4)
-    choices = "1234"
-    choice_all = "5"
-    user_input = input(":>")
-
-    foos = get_opts_from_input(user_input, options, choices, choice_all, multi=False)
-    for foo in foos:
-        foo()
-
-
-def test2():
-    import TimeType
-    time_type = None
-    while True:
-        try:
-            usr_input_time_type = input(">:")
-
-            options = (
-                TimeType.Year,
-                TimeType.Quarter,
-            )
-
-            # time_type luc nay moi la class "type" chua phai Year hay Quarter
-            time_type = get_opts_from_input(
-                user_input=usr_input_time_type,
-                options=options,
-                valid_choices="12"
-            )
-
-            break
-
-        except ValueError as error:
-            print(error)
-            continue
-
-    TimeType.create_from_input(time_type[0], TimeType.Year, TimeType.Quarter)
+def main():
+    pass
 
 
 if __name__ == '__main__':
-    test2()
+    main()

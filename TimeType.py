@@ -99,9 +99,9 @@ def check(time_type_obj):
 def create_from_input(time_type_class, year_class, quarter_class):
     """Kiem soat viec nhap va chon gia tri cua nguoi dung ung voi lai TimeStyle
     var:
+        :param year_class: La class cua Year trong module nay da duoc import vao chuong trinh chinh
+        :param quarter_class: La class cua Quarter trong module nay da duoc import vao trong chuong trinh chinh
         :type time_type_class: Year / Quarter : Class thoi gian tuong ung
-        year_class: La class cua Year trong module nay da duoc import vao chuong trinh chinh
-        quarter_class: La class cua Quarter trong module nay da duoc import vao trong chuong trinh chinh
     ket qua:
         hop le: Tra lai doi tuong TimeStyle Obj tuong ung voi gia tri da nhap
         khong hop le: Bat nguoi dung nhap den khi hop le
@@ -149,13 +149,9 @@ def create_from_input(time_type_class, year_class, quarter_class):
                 continue
 
 
-def test():
-    a = Quarter
-    if a == Quarter:
-        print("haha")
-    print(type(a))
-    create_from_input(a, Year, Quarter)
+def main():
+    pass
 
 
 if __name__ == '__main__':
-    test()
+    main()
