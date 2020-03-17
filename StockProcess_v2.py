@@ -10,6 +10,8 @@ from collections import namedtuple
 import option_menu
 import Report
 import TimeType
+import GetData
+import Erros
 
 
 class Info:
@@ -195,6 +197,18 @@ def main():
             separate_print(report.name.upper())
             for i in range(0, report_num):
                 print(f"{i} - {report.name} - {time_type.prev(i)}")
+                try:
+                    scraper = GetData.CafeFScraper(
+                        stock,
+                        report,
+                        time_type.prev(i)
+                    )
+                    print(scraper.data)
+                except Erros.EmptyReport as error:
+                    print(error)
+
+                except Erros.EmptyColumn as error:
+                    print(error)
 
 
 if __name__ == '__main__':

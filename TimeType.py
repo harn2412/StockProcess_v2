@@ -21,7 +21,7 @@ class Year:
         for i in range(0, step):
             year -= 1
 
-        return year, quarter
+        return Year(year)
 
     def __repr__(self):
         return f"TimeType.Year(year={self.year}, quarter={self.quarter})"
@@ -50,7 +50,7 @@ class Quarter:
             else:
                 quarter -= 1
 
-        return year, quarter
+        return Quarter(year, quarter)
 
     def __repr__(self):
         return f"TimeType.Quarter(year={self.year}, quarter={self.quarter})"
@@ -112,8 +112,7 @@ def create_from_input(time_type_class, year_class, quarter_class):
             try:
                 year = int(input("Nam ban muon lay bao cao: "))
             except ValueError:
-                print("Gia tri khong hop le vui long nhap lai "
-                      "(VD: 2020 hoac 2019)")
+                print("Gia tri khong hop le vui long nhap lai " "(VD: 2020 hoac 2019)")
                 continue
 
             try:
@@ -128,8 +127,7 @@ def create_from_input(time_type_class, year_class, quarter_class):
             try:
                 year = int(input("Nam ban muon lay bao cao: "))
             except ValueError:
-                print("Gia tri khong hop le vui long nhap lai "
-                      "(VD: 2020 hoac 2019)")
+                print("Gia tri khong hop le vui long nhap lai " "(VD: 2020 hoac 2019)")
                 continue
 
             try:
@@ -137,8 +135,10 @@ def create_from_input(time_type_class, year_class, quarter_class):
                 if quarter not in (1, 2, 3, 4):
                     raise ValueError
             except ValueError:
-                print("Gia tri khong hop le vui long nhap lai "
-                      "(chi cho phep chon mot trong cac so 1, 2, 3, 4)")
+                print(
+                    "Gia tri khong hop le vui long nhap lai "
+                    "(chi cho phep chon mot trong cac so 1, 2, 3, 4)"
+                )
                 continue
 
             try:
@@ -153,5 +153,5 @@ def main():
     pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
