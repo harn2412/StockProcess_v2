@@ -1,0 +1,120 @@
+id,name
+10001,TÀI SẢN NGẮN HẠN
+10002,Tiền và các khoản tương đương tiền
+10003,Tiền
+10004,Các khoản tương đương tiền
+10005,Các khoản đầu tư tài chính ngắn hạn
+10006,Chứng khoán kinh doanh
+10007,Dự phòng giảm giá chứng khoán kinh doanh
+10008,Đầu tư nắm giữ đến ngày đáo hạn
+10009,Các khoản phải thu ngắn hạn
+10010,Phải thu khách hàng
+10011,Trả trước cho người bán
+10012,Phải thu nội bộ ngắn hạn
+10013,Phải thu theo tiến độ Kế hoạch hợp đồng xây dựng
+10014,Phải thu về cho vay ngắn hạn
+10015,Các khoản phải thu khác
+10016,Dự phòng phải thu ngắn hạn khó đòi
+10017,Tài sản thiếu chờ xử lý
+10018,Hàng tồn kho
+10019,Hàng tồn kho
+10020,Dự phòng giảm giá hàng tồn kho
+10021,Tài sản ngắn hạn khác
+10022,Chi phí trả trước ngắn hạn
+10023,Thuế GTGT được khấu trừ
+10024,Thuế và các khoản khác phải thu Nhà nước
+10025,Giao dịch mua bán lại trái phiếu Chính phủ
+10026,Tài sản ngắn hạn khác
+10027,TÀI SẢN DÀI HẠN
+10028,Các khoản phải thu dài hạn
+10029,Phải thu dài hạn của khách hàng
+10030,Trả trước cho người bán dài hạn
+10031,Vốn kinh doanh ở đơn vị trực thuộc
+10032,Phải thu nội bộ dài hạn
+10033,Phải thu về cho vay dài hạn
+10034,Phải thu dài hạn khác
+10035,Dự phòng phải thu khó đòi
+10036,Tài sản cố định
+10037,Tài sản cố định hữu hình
+10038,Nguyên giá
+10039,Giá trị hao mòn luỹ kế
+10040,Tài sản cố định thuê tài chính
+10041,Nguyên giá
+10042,Giá trị hao mòn luỹ kế
+10043,Tài sản cố định vô hình
+10044,Nguyên giá
+10045,Giá trị hao mòn luỹ kế
+10046,Bất động sản đầu tư
+10047,Nguyên giá
+10048,Giá trị hao mòn luỹ kế
+10049,Tài sản dở dang dài hạn
+10050,"Chi phí sản xuất, kinh doanh dở dang dài hạn"
+10051,Chi phí xây dựng cơ bản dở dang
+10052,Đầu tư tài chính dài hạn
+10053,Đầu tư vào công ty con
+10054,"Đầu tư vào công ty liên kết, liên doanh"
+10055,Đầu tư góp vốn vào đơn vị khác
+10056,Dự phòng giảm giá đầu tư dài hạn
+10057,Đầu tư nắm giữ đến ngày đáo hạn
+10058,Tài sản dài hạn khác
+10059,Chi phí trả trước dài hạn
+10060,Tài sản thuế thu nhập hoãn lại
+10061,"Thiết bị, vật tư, phụ tùng thay thế dài hạn"
+10062,Tài sản dài hạn khác
+10063,"Ký quỹ, ký cược dài hạn"
+10064,Lợi thế thương mại
+10065,Tổng cộng tài sản
+10066,NỢ PHẢI TRẢ
+10067,Nợ ngắn hạn
+10068,Phải trả người bán ngắn hạn
+10069,Người mua trả tiền trước ngắn hạn
+10070,Thuế và các khoản phải nộp Nhà nước
+10071,Phải trả người lao động
+10072,Chi phí phải trả ngắn hạn
+10073,Phải trả nội bộ ngắn hạn
+10074,Phải trả theo tiến độ kế hoạch hợp đồng xây dựng
+10075,Doanh thu chưa thực hiện ngắn hạn
+10076,Phải trả ngắn hạn khác
+10077,Vay và nợ thuê tài chính ngắn hạn
+10078,Dự phòng phải trả ngắn hạn
+10079,"Quỹ khen thưởng, phúc lợi"
+10080,Quỹ bình ổn giá
+10081,Giao dịch mua bán lại trái phiếu Chính phủ
+10082,Nợ dài hạn
+10083,Phải trả dài hạn người bán
+10084,Người mua trả tiền trước dài hạn
+10085,Chi phí phải trả dài hạn
+10086,Phải trả nội bộ về vốn kinh doanh
+10087,Phải trả dài hạn nội bộ dài hạn
+10088,Doanh thu chưa thực hiện dài hạn
+10089,Phải trả dài hạn khác
+10090,Vay và nợ  thuê tài chính dài hạn
+10091,Trái phiếu chuyển đổi
+10092,Thuế thu nhập hoãn lại phải trả
+10093,Dự phòng phải trả dài hạn
+10094,Quỹ phát triển khoa học và công nghệ
+10095,VỐN CHỦ SỞ HỮU
+10096,Vốn chủ sở hữu
+10097,Vốn góp của chủ sở hữu
+10098,Cổ phiếu phổ thông có quyền biểu quyết
+10099,Thặng dư vốn cổ phần
+10100,Quyền chọn chuyển đổi trái phiếu
+10101,Vốn khác của chủ sở hữu
+10102,Cổ phiếu quỹ
+10103,Chênh lệch đánh giá lại tài sản
+10104,Chênh lệch tỷ giá hối đoái
+10105,Quỹ đầu tư phát triển
+10106,Quỹ hỗ trợ sắp xếp doanh nghiệp
+10107,Quỹ khác thuộc vốn chủ sở hữu
+10108,Lợi nhuận sau thuế chưa phân phối
+10109,LNST chưa phân phối lũy kế đến cuối kỳ trước
+10110,LNST chưa phân phối kỳ này
+10111,Nguồn vốn đầu tư XDCB
+10112,Lợi ích cổ đông không kiểm soát
+10113,Phụ trội hợp nhất công ty con
+10114,Nguồn kinh phí và các quỹ khác
+10115,Nguồn kinh phí
+10116,Nguồn kinh phí đã hình thành TSCĐ
+10117,LỢI ÍCH CỦA CỔ ĐÔNG THIỂU SỐ
+10118,Tổng cộng nguồn vốn
+10119,Cổ phiếu ưu đãi

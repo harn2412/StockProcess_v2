@@ -204,7 +204,7 @@ def main():
                         time_type.prev(i)
                     )
                     print(scraper.data)
-                except Erros.EmptyReport as error:
+                except Erros.EmptyTable as error:
                     print(error)
 
                 except Erros.EmptyColumn as error:

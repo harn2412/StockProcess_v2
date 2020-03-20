@@ -7,7 +7,7 @@ class CanNotScrapData(ValueError):
     pass
 
 
-class EmptyReport(ValueError):
+class EmptyTable(ValueError):
     """Bao loi khi tat ca du lieu trong bang tai ve deu la numpy.na"""
     pass
 
@@ -15,4 +15,9 @@ class EmptyReport(ValueError):
 class EmptyColumn(ValueError):
     """Bao loi khi the lay du lieu cua mot cot,
     mac du da thu tai lai nhieu lan"""
+    pass
+
+
+class DuplicateIndex(ValueError):
+    """Bao loi khi noi dung Index tao ra bi trung lap"""
     pass

@@ -4,7 +4,7 @@ import sqlite3
 import DefaultValues
 import requests
 import Erros
-from bs4 import BeautifulSoup as BeautifulSoup
+from bs4 import BeautifulSoup
 from collections import namedtuple
 import re
 import numpy
@@ -23,6 +23,18 @@ def get_index_name(text):
         return index_name
 
     else:
+        return text
+
+
+def remove_bullets_numbering(text: str):
+    """Loai bo cac phan danh so o dau ten gia tri, Vi du "I -" , "1. ", ..."""
+
+    pattern = re.compile(r'[\d\-.]+\s?(.*)')
+    search_result = pattern.search(text)
+
+    try:
+        return search_result.group(1)
+    except AttributeError:
         return text
 
 
@@ -72,16 +84,20 @@ class CafeFScraper:
         )
 
         # du lieu tho trong trang tai ve
-        self.value_names, self.value_ids, self.raw_data = self.get_raw_data(self.url)
-        self.raw_data = pandas.DataFrame(
-            self.raw_data
-        )  # chuyen ve DataFrame de xu ly ve sau
-
-        # lay du lieu cua cot cuoi cung
-        self.data = self.check_data(self.raw_data)
+        value_names, value_ids, raw_data = self.get_raw_data(self.url)
 
         # index cho cac du lieu
-        self.index = self.create_index()
+        index = self.create_index(value_names, value_ids)
+
+        # Tao bang DataFrame de xu ly du lieu
+        raw_data = pandas.DataFrame(
+            data=raw_data, index=index)  # chuyen ve DataFrame de xu ly ve sau
+
+        # lay du lieu cua cot cuoi cung
+        self.data: pandas.Series = self.check_data(raw_data)
+
+        # cap nhat ten
+        self.data.name = str(time_type)
 
     @staticmethod
     def get_company_url_name(stock):
@@ -91,25 +107,23 @@ class CafeFScraper:
         :return: str
         """
         with sqlite3.connect(DefaultValues.FilePath.database_path) as conn:
-            query = (
-                f"SELECT URLName\n"
-                f"FROM {DefaultValues.Table.current_stocks}\n"
-                f"WHERE Symbol='{stock}'\n"
-                f";"
-            )
+            query = (f"SELECT URLName\n"
+                     f"FROM {DefaultValues.Table.current_stocks}\n"
+                     f"WHERE Symbol='{stock}'\n"
+                     f";")
 
             _ = pandas.read_sql_query(query, conn)
 
             if _.empty:
-                raise ValueError(f"Khong tim thay URLName voi ma co phieu '{stock}'")
+                raise ValueError(
+                    f"Khong tim thay URLName voi ma co phieu '{stock}'")
 
             else:
                 return _.iloc[0, 0]
 
     @staticmethod
-    def create_url(
-            stock, report_short_name, report_long_name, year, quarter, company_url_name
-    ):
+    def create_url(stock, report_short_name, report_long_name, year, quarter,
+                   company_url_name):
         """
         Tao ra url de tai du lieu
         :param stock: ma co phieu can lay du lieu
@@ -121,14 +135,12 @@ class CafeFScraper:
         :return:
         """
 
-        url = (
-            f"http://s.cafef.vn/bao-cao-tai-chinh/{stock}/"
-            f"{report_short_name}/"
-            f"{year}/{quarter}/0/0/"
-            f"{report_long_name}-"
-            f"{company_url_name}"
-            f".chn"
-        )
+        url = (f"http://s.cafef.vn/bao-cao-tai-chinh/{stock}/"
+               f"{report_short_name}/"
+               f"{year}/{quarter}/0/0/"
+               f"{report_long_name}-"
+               f"{company_url_name}"
+               f".chn")
 
         return url
 
@@ -160,8 +172,7 @@ class CafeFScraper:
 
         if table is None:
             raise Erros.CanNotScrapData(
-                "Khong thay bang chua du lieu trong noi dung trang da tai"
-            )
+                "Khong thay bang chua du lieu trong noi dung trang da tai")
 
         # Cac dong chua du lieu duoi dang html
         rows = table.find_all_next("tr", {"class": ["r_item", "r_item_a"]})
@@ -177,16 +188,18 @@ class CafeFScraper:
             value_names.append(get_index_name(cells[0].text))
 
             # du lieu trong hang
-            data.append(
-                (
-                    convert_to_number(cells[1].text),
-                    convert_to_number(cells[2].text),
-                    convert_to_number(cells[3].text),
-                    convert_to_number(cells[4].text),
-                )
-            )
+            data.append((
+                convert_to_number(cells[1].text),
+                convert_to_number(cells[2].text),
+                convert_to_number(cells[3].text),
+                convert_to_number(cells[4].text),
+            ))
 
-        return RawData(value_names=value_names, value_ids=value_ids, data=data, )
+        return RawData(
+            value_names=value_names,
+            value_ids=value_ids,
+            data=data,
+        )
 
     @staticmethod
     def check_data(raw_data):
@@ -199,7 +212,7 @@ class CafeFScraper:
             dang pandas.core.series.Series"""
 
         if raw_data.isnull().to_numpy().all():
-            raise Erros.EmptyReport("Khong co du lieu trong bang raw_data")
+            raise Erros.EmptyTable("Khong co du lieu trong bang raw_data")
 
         column = raw_data.iloc[:, -1]
         if column.isnull().all():
@@ -208,25 +221,14 @@ class CafeFScraper:
         return column
 
     @staticmethod
-    def remove_bullets_numbering(text: str):
-        """Loai bo cac phan danh so o dau ten gia tri, Vi du "I -" , "1. ", ..."""
-
-        pattern = re.compile(r'[\d\-.]+\s?(.*)')
-        search_result = pattern.search(text)
-
-        try:
-            return search_result.group(1)
-        except AttributeError:
-            return text
-
-    def create_index(self):
+    def create_index(value_names, value_ids):
         """Ket hop ten gia tri va id lai de ra index cho gia tri thu duoc
         (Vi cafef co dung trung ten va id cho du lieu trong bang du lieu)"""
 
         index = []
 
-        for _name, _id in zip(self.value_names, self.value_ids):
-            _ = self.remove_bullets_numbering(_name), _id
+        for _name, _id in zip(value_names, value_ids):
+            _ = remove_bullets_numbering(_name), _id
             index.append("_".join(_))
 
-        return index
+        return pandas.Index(index)

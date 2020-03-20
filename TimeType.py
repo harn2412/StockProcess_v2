@@ -12,6 +12,9 @@ class Year:
     def __call__(self, *args, **kwargs):
         return self(*args, **kwargs)
 
+    def __str__(self):
+        return str(self.year)
+
     def prev(self, step: int):
         """dem lui thoi gian ve khoan tuong ung
         step: so buoc lui"""
@@ -36,6 +39,9 @@ class Quarter:
 
     def __call__(self, *args, **kwargs):
         return self(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.year}-Q{self.quarter}"
 
     def prev(self, step: int):
         """dem lui thoi gian ve khoan tuong ung
