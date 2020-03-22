@@ -2,3 +2,5 @@
 /venv/
 /database.db
 /debug.py
+/exported_data/
+/dev/

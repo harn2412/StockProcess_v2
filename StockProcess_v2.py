@@ -82,16 +82,6 @@ def check_stock(stocks):
     return Result(valid=valid_stocks, invalid=invalid_stocks)
 
 
-def create_option_list(text):
-    """Lam ra danh sach cac tuy chon bao cao muon tai ve"""
-    pattern = re.compile(r"[12345]+")
-    options = tuple([int(opt_text) for opt_text in pattern.findall(text)])
-    if 5 in options:
-        return 1, 2, 3, 4
-    else:
-        return options
-
-
 def main():
     """Chuong trinh chinh"""
 

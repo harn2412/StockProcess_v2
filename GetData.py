@@ -229,7 +229,7 @@ class CafeFScraper:
         index = []
 
         for _name, _id in zip(value_names, value_ids):
-            _ = remove_bullets_numbering(_name), _id
-            index.append("_".join(_))
+            new_index = _name, _id
+            index.append("_".join(new_index))
 
         return pandas.Index(index)

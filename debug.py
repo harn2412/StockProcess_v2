@@ -1,26 +1,35 @@
 """Dung de debug va test code chuong trinh"""
+import sqlite3
+import pandas as pd
+import os
+import DefaultValues
 
-import GetData
-import TimeType
-import Report
-import pandas
-import deal_with_data
+stock = "FPT"
+number = 3
+DATABASE = "database.db"
+here = DefaultValues.FilePath.install_dir
+REPORT_FORM_DIR = "report_forms"
 
-import re
+YEAR_TABLE_DIC = {
+    "balance_sheet": "BS Input (CafeF)",
+    "cash_flow": "CS input (CafeF)",
+    "cash_flow_direct": "CS input (CafeF)",
+    "income_statement": "IS input (CafeF)",
+}
 
-data: pandas.Series = GetData.CafeFScraper("ACB", Report.CFD, TimeType.Year(2019)).data
-data = deal_with_data.solve_duplicate_index(data)
+conn = sqlite3.connect(DATABASE)
 
-data4 = pandas.Series(range(40001, 40001 + data.size), data.index)
-index = data.index
+query = f"SELECT * FROM {stock}_YEARS"
+full_df = pd.read_sql(query, conn, index_col="id")
 
-new_name = []
+if len(full_df.columns) < number:
+    print("Khong du so luong bao cao")
+    print(f"Hien chi co the lay toi da '{len(full_df.columns)}' ket qua")
 
-for i in index:
-    name = re.search(r"(.+)_\d+", i).group(1)
-    new_name.append(name)
+full_df = full_df[sorted(full_df.columns)[-number:]]
 
-new_index = (i + 10001 for i in range(0, len(index)))
-
-series = pandas.Series(new_name, new_index, name="name")
-series.to_csv("default_data/cash_flow_direct.csv",index_label="id")
+for table_name in YEAR_TABLE_DIC.keys():
+    template = pd.read_csv(
+        os.path.join(here, REPORT_FORM_DIR, (table_name + ".csv")), index_col="id"
+    )
+    df = full_df.reindex[template.index]
