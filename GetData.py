@@ -29,7 +29,7 @@ def get_index_name(text):
 def remove_bullets_numbering(text: str):
     """Loai bo cac phan danh so o dau ten gia tri, Vi du "I -" , "1. ", ..."""
 
-    pattern = re.compile(r'[\d\-.]+\s?(.*)')
+    pattern = re.compile(r'[\d\-.]+\s?([(]?.*)')
     search_result = pattern.search(text)
 
     try:

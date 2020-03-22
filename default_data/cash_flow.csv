@@ -5,19 +5,19 @@ id,name
 30004,Khấu hao tài sản cố định
 30005,Các khoản dự phòng
 30006,"Lãi, lỗ từ đầu tư vào công ty liên kết"
-30007,"Lãi, lỗ chênh lệch tỷ giá hối đoái chưa thực hiện"
-30008,"Lãi, lỗ từ hoạt động đầu tư/thanh lý tài sản cố định"
+30007,Lãi) lỗ chênh lệch tỷ giá hối đoái chưa thực hiện
+30008,Lãi)/lỗ từ hoạt động đầu tư/thanh lý tài sản cố định
 30009,Chi phí lãi vay
 30010,Các khoản giảm trừ khác
 30011,Thu nhập từ lãi tiền gửi
 30012,Phân bổ lợi thế thương mại
 30013,Lãi lỗ thanh lý tài sản cố định
 30014,Lợi nhuận (lỗ) từ hoạt động kinh doanh trước thay đổi vốn lưu động
-30015,"Tăng, giảm các khoản phải thu"
+30015,Tăng) giảm các khoản phải thu
 30016,"Tăng, giảm chứng khoán tự doanh"
-30017,"Tăng, giảm hàng tồn kho"
-30018,"Tăng, giảm các khoản phải trả (không bao gồm lãi vay, thuế thu nhập doanh nghiệp phải trả"
-30019,"Tăng, giảm chi phí trả trước"
+30017,Tăng) giảm hàng tồn kho
+30018,"Tăng/(giảm) các khoản phải trả (không bao gồm lãi vay, thuế thu nhập doanh nghiệp phải trả"
+30019,Tăng) giảm chi phí trả trước
 30020,Tiền lãi vay đã trả
 30021,Thuế thu nhập doanh nghiệp đã nộp
 30022,Tiền thu khác từ hoạt động kinh doanh

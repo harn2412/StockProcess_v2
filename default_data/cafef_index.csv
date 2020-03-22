@@ -1,148 +1,149 @@
 id,general_id
-TÀI SẢN NGẮN HẠN_100,10001
-Tiền và các khoản tương đương tiền_110,10002
-Tiền_111,10003
-Các khoản tương đương tiền_112,10004
-Các khoản đầu tư tài chính ngắn hạn_120,10005
-Chứng khoán kinh doanh_1201,10006
-Dự phòng giảm giá chứng khoán kinh doanh_1202,10007
-Đầu tư nắm giữ đến ngày đáo hạn_1203,10008
-Các khoản phải thu ngắn hạn_130,10009
-Phải thu khách hàng_131,10010
-Trả trước cho người bán_132,10011
-Phải thu nội bộ ngắn hạn_133,10012
-Phải thu theo tiến độ Kế hoạch hợp đồng xây dựng_134,10013
-Phải thu về cho vay ngắn hạn_135,10014
-Các khoản phải thu khác_136,10015
-Dự phòng phải thu ngắn hạn khó đòi_139,10016
-Tài sản thiếu chờ xử lý_1391,10017
-Hàng tồn kho_140,10018
-Hàng tồn kho_141,10019
-Dự phòng giảm giá hàng tồn kho_149,10020
-Tài sản ngắn hạn khác_150,10021
-Chi phí trả trước ngắn hạn_151,10022
-Thuế GTGT được khấu trừ_152,10023
-Thuế và các khoản khác phải thu Nhà nước_154,10024
-Giao dịch mua bán lại trái phiếu Chính phủ_155,10025
-Tài sản ngắn hạn khác_158,10026
-TÀI SẢN DÀI HẠN_200,10027
-Các khoản phải thu dài hạn_210,10028
-Phải thu dài hạn của khách hàng_211,10029
-Trả trước cho người bán dài hạn_212,10030
-Vốn kinh doanh ở đơn vị trực thuộc_213,10031
-Phải thu nội bộ dài hạn_213,10032
-Phải thu về cho vay dài hạn_2131,10033
-Phải thu dài hạn khác_218,10034
-Dự phòng phải thu khó đòi_219,10035
-Tài sản cố định_220,10036
-Tài sản cố định hữu hình_221,10037
+I - TÀI SẢN NGẮN HẠN_100,10001
+1. Tiền và các khoản tương đương tiền_110,10002
+1.1.Tiền_111,10003
+1.2.Các khoản tương đương tiền_112,10004
+2. Các khoản đầu tư tài chính ngắn hạn_120,10005
+2.1. Chứng khoán kinh doanh_1201,10006
+2.2. Dự phòng giảm giá chứng khoán kinh doanh_1202,10007
+2.3. Đầu tư nắm giữ đến ngày đáo hạn_1203,10008
+3. Các khoản phải thu ngắn hạn_130,10009
+3.1.Phải thu khách hàng_131,10010
+3.2.Trả trước cho người bán_132,10011
+3.3. Phải thu nội bộ ngắn hạn_133,10012
+3.4. Phải thu theo tiến độ Kế hoạch hợp đồng xây dựng_134,10013
+3.5 Phải thu về cho vay ngắn hạn_135,10014
+3.6. Các khoản phải thu khác_136,10015
+3.7. Dự phòng phải thu ngắn hạn khó đòi_139,10016
+3.8 Tài sản thiếu chờ xử lý_1391,10017
+4. Hàng tồn kho_140,10018
+4.1. Hàng tồn kho_141,10019
+4.2. Dự phòng giảm giá hàng tồn kho_149,10020
+5. Tài sản ngắn hạn khác_150,10021
+5.1. Chi phí trả trước ngắn hạn_151,10022
+5.2. Thuế GTGT được khấu trừ_152,10023
+5.3. Thuế và các khoản khác phải thu Nhà nước_154,10024
+5.4 Giao dịch mua bán lại trái phiếu Chính phủ_155,10025
+5.5. Tài sản ngắn hạn khác_158,10026
+II - TÀI SẢN DÀI HẠN_200,10027
+1. Các khoản phải thu dài hạn_210,10028
+1.1. Phải thu dài hạn của khách hàng_211,10029
+1.2 Trả trước cho người bán dài hạn_212,10030
+1.3. Vốn kinh doanh ở đơn vị trực thuộc_213,10031
+1.4. Phải thu nội bộ dài hạn_213,10032
+1.5 Phải thu về cho vay dài hạn_2131,10033
+1.6. Phải thu dài hạn khác_218,10034
+1.7. Dự phòng phải thu khó đòi_219,10035
+2. Tài sản cố định_220,10036
+2.1. Tài sản cố định hữu hình_221,10037
 Nguyên giá_2211,10038
 Giá trị hao mòn luỹ kế_2212,10039
-Tài sản cố định thuê tài chính_222,10040
+2.2. Tài sản cố định thuê tài chính_222,10040
 Nguyên giá_2221,10041
 Giá trị hao mòn luỹ kế_2222,10042
-Tài sản cố định vô hình_223,10043
+2.3. Tài sản cố định vô hình_223,10043
 Nguyên giá_2231,10044
 Giá trị hao mòn luỹ kế_2232,10045
-Bất động sản đầu tư_230,10046
+3. Bất động sản đầu tư_230,10046
 Nguyên giá_2301,10047
 Giá trị hao mòn luỹ kế_2302,10048
-Tài sản dở dang dài hạn_240,10049
-"Chi phí sản xuất, kinh doanh dở dang dài hạn_24021",10050
-Chi phí xây dựng cơ bản dở dang_24022,10051
-Đầu tư tài chính dài hạn_250,10052
-Đầu tư vào công ty con_251,10053
-"Đầu tư vào công ty liên kết, liên doanh_252",10054
-Đầu tư góp vốn vào đơn vị khác_253,10055
-Dự phòng giảm giá đầu tư dài hạn_258,10056
-Đầu tư nắm giữ đến ngày đáo hạn_259,10057
-Tài sản dài hạn khác_260,10058
-Chi phí trả trước dài hạn_261,10059
-Tài sản thuế thu nhập hoãn lại_2611,10060
-"Thiết bị, vật tư, phụ tùng thay thế dài hạn_2611",10061
-Tài sản dài hạn khác_267,10062
-"Ký quỹ, ký cược dài hạn_268",10063
-Lợi thế thương mại_269,10064
+4. Tài sản dở dang dài hạn_240,10049
+"1. Chi phí sản xuất, kinh doanh dở dang dài hạn_24021",10050
+2. Chi phí xây dựng cơ bản dở dang_24022,10051
+5. Đầu tư tài chính dài hạn_250,10052
+1. Đầu tư vào công ty con_251,10053
+"2. Đầu tư vào công ty liên kết, liên doanh_252",10054
+3. Đầu tư góp vốn vào đơn vị khác_253,10055
+4. Dự phòng giảm giá đầu tư dài hạn_258,10056
+5. Đầu tư nắm giữ đến ngày đáo hạn_259,10057
+6. Tài sản dài hạn khác_260,10058
+1. Chi phí trả trước dài hạn_261,10059
+2. Tài sản thuế thu nhập hoãn lại_2611,10060
+"3. Thiết bị, vật tư, phụ tùng thay thế dài hạn_2611",10061
+4. Tài sản dài hạn khác_267,10062
+"5. Ký quỹ, ký cược dài hạn_268",10063
+6. Lợi thế thương mại_269,10064
 Tổng cộng tài sản_001,10065
-NỢ PHẢI TRẢ_300,10066
-Nợ ngắn hạn_310,10067
-Phải trả người bán ngắn hạn_312,10068
-Người mua trả tiền trước ngắn hạn_313,10069
-Thuế và các khoản phải nộp Nhà nước_314,10070
-Phải trả người lao động_315,10071
-Chi phí phải trả ngắn hạn_316,10072
-Phải trả nội bộ ngắn hạn_317,10073
-Phải trả theo tiến độ kế hoạch hợp đồng xây dựng_318,10074
-Doanh thu chưa thực hiện ngắn hạn_3181,10075
-Phải trả ngắn hạn khác_3182,10076
-Vay và nợ thuê tài chính ngắn hạn_3183,10077
-Dự phòng phải trả ngắn hạn_320,10078
-"Quỹ khen thưởng, phúc lợi_3201",10079
-Quỹ bình ổn giá_322,10080
-Giao dịch mua bán lại trái phiếu Chính phủ_323,10081
-Nợ dài hạn_330,10082
-Phải trả dài hạn người bán_331,10083
-Người mua trả tiền trước dài hạn_3311,10084
-Chi phí phải trả dài hạn_3312,10085
-Phải trả nội bộ về vốn kinh doanh_3313,10086
-Phải trả dài hạn nội bộ dài hạn_332,10087
-Doanh thu chưa thực hiện dài hạn_3321,10088
-Phải trả dài hạn khác_333,10089
-Vay và nợ  thuê tài chính dài hạn_334,10090
-Trái phiếu chuyển đổi_3341,10091
-Thuế thu nhập hoãn lại phải trả_335,10092
-Dự phòng phải trả dài hạn_337,10093
-Quỹ phát triển khoa học và công nghệ_3371,10094
-VỐN CHỦ SỞ HỮU_400,10095
-Vốn chủ sở hữu_410,10096
-Vốn góp của chủ sở hữu_4101,10097
+I - NỢ PHẢI TRẢ_300,10066
+1. Nợ ngắn hạn_310,10067
+1.1. Phải trả người bán ngắn hạn_312,10068
+1.2. Người mua trả tiền trước ngắn hạn_313,10069
+1.3.Thuế và các khoản phải nộp Nhà nước_314,10070
+1.4. Phải trả người lao động_315,10071
+1.5. Chi phí phải trả ngắn hạn_316,10072
+1.6. Phải trả nội bộ ngắn hạn_317,10073
+1.7. Phải trả theo tiến độ kế hoạch hợp đồng xây dựng_318,10074
+1.8. Doanh thu chưa thực hiện ngắn hạn_3181,10075
+1.9. Phải trả ngắn hạn khác_3182,10076
+1.10. Vay và nợ thuê tài chính ngắn hạn_3183,10077
+1.11. Dự phòng phải trả ngắn hạn_320,10078
+"1.12 Quỹ khen thưởng, phúc lợi_3201",10079
+1.13. Quỹ bình ổn giá_322,10080
+1.14. Giao dịch mua bán lại trái phiếu Chính phủ_323,10081
+2. Nợ dài hạn_330,10082
+2.1. Phải trả dài hạn người bán_331,10083
+2.2 Người mua trả tiền trước dài hạn_3311,10084
+2.3 Chi phí phải trả dài hạn_3312,10085
+2.4 Phải trả nội bộ về vốn kinh doanh_3313,10086
+2.5 Phải trả dài hạn nội bộ dài hạn_332,10087
+2.6 Doanh thu chưa thực hiện dài hạn_3321,10088
+2.7. Phải trả dài hạn khác_333,10089
+2.8 Vay và nợ  thuê tài chính dài hạn_334,10090
+2.9 Trái phiếu chuyển đổi_3341,10091
+2.11 Thuế thu nhập hoãn lại phải trả_335,10092
+2.12. Dự phòng phải trả dài hạn_337,10093
+2.13. Quỹ phát triển khoa học và công nghệ_3371,10094
+II - VỐN CHỦ SỞ HỮU_400,10095
+I. Vốn chủ sở hữu_410,10096
+1. Vốn góp của chủ sở hữu_4101,10097
 Cổ phiếu phổ thông có quyền biểu quyết_4102,10098
-Thặng dư vốn cổ phần_412,10099
-Quyền chọn chuyển đổi trái phiếu_4121,10100
-Vốn khác của chủ sở hữu_413,10101
-Cổ phiếu quỹ_414,10102
-Chênh lệch đánh giá lại tài sản_415,10103
-Chênh lệch tỷ giá hối đoái_416,10104
-Quỹ đầu tư phát triển_417,10105
-Quỹ hỗ trợ sắp xếp doanh nghiệp_4171,10106
-Quỹ khác thuộc vốn chủ sở hữu_419,10107
-Lợi nhuận sau thuế chưa phân phối_420,10108
-LNST chưa phân phối lũy kế đến cuối kỳ trước_4201,10109
-LNST chưa phân phối kỳ này_4202,10110
-Nguồn vốn đầu tư XDCB_421,10111
-Lợi ích cổ đông không kiểm soát_4211,10112
-Phụ trội hợp nhất công ty con_4212,10113
-Nguồn kinh phí và các quỹ khác_430,10114
-Nguồn kinh phí_432,10115
-Nguồn kinh phí đã hình thành TSCĐ_433,10116
-LỢI ÍCH CỦA CỔ ĐÔNG THIỂU SỐ_500,10117
-Tổng cộng nguồn vốn_002,10118
-Cổ phiếu ưu đãi_4103,10119
-Doanh thu bán hàng và cung cấp dịch vụ_01,20001
-Các khoản giảm trừ doanh thu_02,20002
-Doanh thu thuần về bán hàng và cung cấp dịch vụ_10,20003
-Giá vốn hàng bán_11,20004
-Lợi nhuận gộp về bán hàng và cung cấp dịch vụ_20,20005
-Doanh thu hoạt động tài chính_21,20006
-Chi phí tài chính_22,20007
+Cổ phiếu ưu đãi_4103,10099
+2.10 Cổ phiếu ưu đãi_4103,10100
+2. Thặng dư vốn cổ phần_412,10101
+3. Quyền chọn chuyển đổi trái phiếu_4121,10102
+4. Vốn khác của chủ sở hữu_413,10103
+5. Cổ phiếu quỹ_414,10104
+6. Chênh lệch đánh giá lại tài sản_415,10105
+7. Chênh lệch tỷ giá hối đoái_416,10106
+8. Quỹ đầu tư phát triển_417,10107
+9. Quỹ hỗ trợ sắp xếp doanh nghiệp_4171,10108
+10. Quỹ khác thuộc vốn chủ sở hữu_419,10109
+11. Lợi nhuận sau thuế chưa phân phối_420,10110
+LNST chưa phân phối lũy kế đến cuối kỳ trước_4201,10111
+LNST chưa phân phối kỳ này_4202,10112
+12. Nguồn vốn đầu tư XDCB_421,10113
+13. Lợi ích cổ đông không kiểm soát_4211,10114
+14. Phụ trội hợp nhất công ty con_4212,10115
+2. Nguồn kinh phí và các quỹ khác_430,10116
+2.1. Nguồn kinh phí_432,10117
+2.2. Nguồn kinh phí đã hình thành TSCĐ_433,10118
+III - LỢI ÍCH CỦA CỔ ĐÔNG THIỂU SỐ_500,10119
+Tổng cộng nguồn vốn_002,10120
+1. Doanh thu bán hàng và cung cấp dịch vụ_01,20001
+2. Các khoản giảm trừ doanh thu_02,20002
+3. Doanh thu thuần về bán hàng và cung cấp dịch vụ_10,20003
+4. Giá vốn hàng bán_11,20004
+5. Lợi nhuận gộp về bán hàng và cung cấp dịch vụ_20,20005
+6. Doanh thu hoạt động tài chính_21,20006
+7. Chi phí tài chính_22,20007
 Trong đó: Chi phí lãi vay_23,20008
-"Phần lãi lỗ hoặc lỗ trong công ty liên doanh, liên kết_24",20009
-Chi phí bán hàng_25,20010
-Chi phí quản lý doanh nghiệp_26,20011
-Lợi nhuận thuần từ hoạt động kinh doanh_30,20012
-Thu nhập khác_31,20013
-Chi phí khác_32,20014
-Lợi nhuận khác_40,20015
-Tổng lợi nhuận kế toán trước thuế_50,20016
-Chi phí thuế TNDN hiện hành_51,20017
-Chi phí thuế TNDN hoãn lại_52,20018
-Lợi nhuận sau thuế thu nhập doanh nghiệp_60,20019
-Lợi ích của cổ đông thiểu số_61,20020
- Lợi nhuận sau thuế của công ty mẹ_62,20021
-Lãi cơ bản trên cổ phiếu_70,20022
-Lãi suy giảm trên cổ phiếu_80,20023
-Cổ tức_81,20024
-LƯU CHUYỂN TIỀN TỪ HOẠT ĐỘNG KINH DOANH_001,30001
+"8. Phần lãi lỗ hoặc lỗ trong công ty liên doanh, liên kết_24",20009
+9. Chi phí bán hàng_25,20010
+10. Chi phí quản lý doanh nghiệp_26,20011
+11. Lợi nhuận thuần từ hoạt động kinh doanh_30,20012
+12. Thu nhập khác_31,20013
+13. Chi phí khác_32,20014
+14. Lợi nhuận khác_40,20015
+15. Tổng lợi nhuận kế toán trước thuế_50,20016
+16. Chi phí thuế TNDN hiện hành_51,20017
+17. Chi phí thuế TNDN hoãn lại_52,20018
+18. Lợi nhuận sau thuế thu nhập doanh nghiệp_60,20019
+18.1 Lợi ích của cổ đông thiểu số_61,20020
+18.2  Lợi nhuận sau thuế của công ty mẹ_62,20021
+19. Lãi cơ bản trên cổ phiếu_70,20022
+20. Lãi suy giảm trên cổ phiếu_80,20023
+21. Cổ tức_81,20024
+I. LƯU CHUYỂN TIỀN TỪ HOẠT ĐỘNG KINH DOANH_001,30001
 Lợi nhuận (lỗ) trước thuế_01,30002
 Điều chỉnh cho các khoản_0101,30003
 Khấu hao tài sản cố định_02,30004
@@ -168,7 +169,7 @@ Tiền chi khác cho hoạt động kinh doanh_16,30023
 Tăng tài sản ngắn hạn khác_17,30024
 Chênh lệch tỷ giá trong giai đoạn đầu tư_18,30025
 Lưu chuyển tiền thuần từ hoạt động kinh doanh_20,30026
-LƯU CHUYỂN TIỀN TỪ HOẠT ĐỘNG ĐẦU TƯ_2010,30027
+II. LƯU CHUYỂN TIỀN TỪ HOẠT ĐỘNG ĐẦU TƯ_2010,30027
 "Tiền chi để mua sắm, xây dựng tài sản cố định_21",30028
 "Tiền thu do thanh lý, nhượng bán TSCĐ và các tài sản dài hạn khác_22",30029
 "Tiền chi cho vay, mua các công cụ nợ của đơn vị khác_23",30030
@@ -177,21 +178,21 @@ Tiền chi đầu tư góp vốn vào đơn vị khác_25,30032
 Tiền thu do bán các khoản đầu tư góp vốn vào đơn vị khác_26,30033
 "Tiền thu lãi cho vay, cổ tức và lợi nhuận được chia_27",30034
 Tiền đầu tư xây dựng nhà xưởng_28,30035
-Tăng lợi ích của cổ đông thiếu số khi hợp nhất công ty con_28,30036
-Loại trừ lợi ích của cổ đông thiểu số khi thanh lý công ty con_28,30037
-Tiền mặt tại công ty con mua trong năm_2901,30038
-Tiền thu do nhượng bán các khoản đầu tư vào công ty con_2902,30039
-Tiền chi gửi ngắn hạn_2903,30040
-Tiền thu lãi từ gửi ngắn hạn_2904,30041
-Tiền chi mua tài sản khác_2905,30042
-Giảm tiền gửi ngân hàng có kỳ hạn_290501,30043
-Tiền chi để mua thêm cổ phần của công ty con_2906,30044
-"Tiền thu từ các khoản ký gửi, ký quỹ dài hạn_290601",30045
-Tiền gửi ngắn hạn_290602,30046
-Rút tiền gửi ngắn hạn_290603,30047
-Tiền thu từ chuyển quyền góp vốn vào dự án_290604,30048
+8. Tăng lợi ích của cổ đông thiếu số khi hợp nhất công ty con_28,30036
+9. Loại trừ lợi ích của cổ đông thiểu số khi thanh lý công ty con_28,30037
+11. Tiền mặt tại công ty con mua trong năm_2901,30038
+12. Tiền thu do nhượng bán các khoản đầu tư vào công ty con_2902,30039
+13. Tiền chi gửi ngắn hạn_2903,30040
+14. Tiền thu lãi từ gửi ngắn hạn_2904,30041
+15. Tiền chi mua tài sản khác_2905,30042
+17. Giảm tiền gửi ngân hàng có kỳ hạn_290501,30043
+16. Tiền chi để mua thêm cổ phần của công ty con_2906,30044
+"18. Tiền thu từ các khoản ký gửi, ký quỹ dài hạn_290601",30045
+19. Tiền gửi ngắn hạn_290602,30046
+20. Rút tiền gửi ngắn hạn_290603,30047
+21. Tiền thu từ chuyển quyền góp vốn vào dự án_290604,30048
 Lưu chuyển tiền thuần từ hoạt động đầu tư_30,30049
-LƯU CHUYỂN TIỀN TỪ HOẠT ĐỘNG TÀI CHÍNH_301,30050
+III. LƯU CHUYỂN TIỀN TỪ HOẠT ĐỘNG TÀI CHÍNH_301,30050
 "Tiền thu từ phát hành cổ phiếu, nhận góp vốn của chủ sở hữu_31",30051
 "Tiền chi trả vốn góp cho các chủ sở hữu, mua lại cổ phiếu của doanh nghiệp của doanh nghiệp đã phát hành_32",30052
 Tiền thu từ nhận góp vốn liên doanh_33,30053
@@ -210,59 +211,59 @@ Tiền và tương đương tiền đầu năm_62,30065
 Ảnh hưởng của thay đổi tỷ giá hối đoái quy đổi ngoại tệ_63,30066
 Chênh lệch tỷ giá chuyển đối báo cáo tài chính_63,30067
 Tiền và tương đương tiền cuối năm_72,30068
-Lưu chuyển tiền từ hoạt động kinh doanh_4920,40001
-Thu nhập lãi và các khoản thu nhập tương tự đạt được_4921,40002
-Chi phí lãi và các chi phí tương tự đã trả_4922,40003
-Thu nhập từ hoạt động dịch vụ nhận được_4923,40004
-"Chênh lệch số tiền thực thu / (thực chi) từ hoạt động kinh doanh (ngoại tệ, vàng bạc, chứng khoán_4924",40005
-Thu nhập thuần từ chứng khoán kinh doanh và chứng khoán sẵn sàng để bán_4925,40006
-Thu nhập / (chi phí) khác_4926,40007
-"Tiền thu từ các khoản nợ đã được xử lý xóa, bù đắp bằng nguồn dự phòng rủi ro_4927",40008
-"Tiền chi trả cho nhân viên và hoạt động quản lý, công vụ_4928",40009
-Tiền thuế thu nhập thực nộp trong kỳ_4929,40010
+I. Lưu chuyển tiền từ hoạt động kinh doanh_4920,40001
+1. Thu nhập lãi và các khoản thu nhập tương tự đạt được_4921,40002
+2. Chi phí lãi và các chi phí tương tự đã trả_4922,40003
+3. Thu nhập từ hoạt động dịch vụ nhận được_4923,40004
+"4. Chênh lệch số tiền thực thu / (thực chi) từ hoạt động kinh doanh (ngoại tệ, vàng bạc, chứng khoán_4924",40005
+5. Thu nhập thuần từ chứng khoán kinh doanh và chứng khoán sẵn sàng để bán_4925,40006
+5. Thu nhập / (chi phí) khác_4926,40007
+"6. Tiền thu từ các khoản nợ đã được xử lý xóa, bù đắp bằng nguồn dự phòng rủi ro_4927",40008
+"6. Tiền chi trả cho nhân viên và hoạt động quản lý, công vụ_4928",40009
+7. Tiền thuế thu nhập thực nộp trong kỳ_4929,40010
 Lưu chuyển tiền thuần từ hoạt động kinh doanh trước những thay đổi của tài sản và công nợ hoạt động_4930,40011
 Thay đổi tài sản hoạt động_4931,40012
-"(Tăng) / giảm tiền, vàng gửi và cho vay các tổ chức tín dụng khác_4932",40013
-(Tăng) / giảm về kinh doanh chứng khoán_4933,40014
-(Tăng) / giảm các công cụ tài chính phái sinh và các khoản nợ tài chính khác_4934,40015
-(Tăng) / giảm các khoản cho vay khách hàng_4935,40016
-"Giảm nguồn dự phòng để bù đắp tổn thất các khoản (tín dung, chứng khoán, đầu tư dài hạn_4936",40017
-(Tăng) / giảm khác về tài sản hoạt động_4937,40018
+"8. (Tăng) / giảm tiền, vàng gửi và cho vay các tổ chức tín dụng khác_4932",40013
+9. (Tăng) / giảm về kinh doanh chứng khoán_4933,40014
+10. (Tăng) / giảm các công cụ tài chính phái sinh và các khoản nợ tài chính khác_4934,40015
+11. (Tăng) / giảm các khoản cho vay khách hàng_4935,40016
+"11. Giảm nguồn dự phòng để bù đắp tổn thất các khoản (tín dung, chứng khoán, đầu tư dài hạn_4936",40017
+12. (Tăng) / giảm khác về tài sản hoạt động_4937,40018
 Thay đổi công nợ hoạt động_4938,40019
-Tăng / (giảm) nợ chính phủ và Ngân hàng Nhà nước Việt Nam_4939,40020
-Tăng / (giảm) tiền gửi và vay các tổ chức tín dụng_4940,40021
-Tăng / (giảm) tiền gửi của khách hàng_4941,40022
-"Tăng / (giảm) vốn tài trợ, ủy thác đầu tư, cho vay và Ngân hàng chịu rủi ro_4942",40023
-Tăng / (giảm) phát hành giấy tờ có giá_4943,40024
-Tăng / (giảm) các công cụ tài chính phái sinh và các khoản nợ tài chính khác_4944,40025
-Tăng / (giảm) khác về công nợ hoạt động_4945,40026
-Chi từ các quỹ_4946,40027
+13. Tăng / (giảm) nợ chính phủ và Ngân hàng Nhà nước Việt Nam_4939,40020
+14. Tăng / (giảm) tiền gửi và vay các tổ chức tín dụng_4940,40021
+15. Tăng / (giảm) tiền gửi của khách hàng_4941,40022
+"16. Tăng / (giảm) vốn tài trợ, ủy thác đầu tư, cho vay và Ngân hàng chịu rủi ro_4942",40023
+17. Tăng / (giảm) phát hành giấy tờ có giá_4943,40024
+18. Tăng / (giảm) các công cụ tài chính phái sinh và các khoản nợ tài chính khác_4944,40025
+19. Tăng / (giảm) khác về công nợ hoạt động_4945,40026
+20. Chi từ các quỹ_4946,40027
 Lưu chuyển tiền thuần từ hoạt động kinh doanh_4947,40028
 Lưu chuyển tiền từ hoạt động đầu tư_4947,40029
-Mua sắm tài sản cố định_4986,40030
-"Tiền thu từ thanh lý, nhượng bán tài sản cố định_4987",40031
-"Tiền chi từ thanh lý, nhượng bán tài sản cố định_4988",40032
-Mua sắm bất động sản đầu tư_4989,40033
-"Tiền thu từ bán, thanh lý bất động sản đầu tư_4990",40034
-"Tiền chi ra do bán, thanh lý bất động sản đầu tư_4991",40035
-"Tiền chi đầu tư, góp vốn vào các đơn vị khác_4992",40036
-"Tiền thu hồi đầu tư, góp vốn vào các đơn vị khác_4993",40037
-"Tiền thu cổ tức và lợi nhuận được chia từ các khoản đầu tư, góp vốn dài hạn_4994",40038
-Lưu chuyển tiền thuần từ hoạt động đầu tư_50,40039
-Tiền thu cổ tức đã có quyết định trả cổ tức năm trước_5436,40040
-Hoạt động đầu tư khác_9856,40041
+1. Mua sắm tài sản cố định_4986,40030
+"2. Tiền thu từ thanh lý, nhượng bán tài sản cố định_4987",40031
+"3. Tiền chi từ thanh lý, nhượng bán tài sản cố định_4988",40032
+4. Mua sắm bất động sản đầu tư_4989,40033
+"5. Tiền thu từ bán, thanh lý bất động sản đầu tư_4990",40034
+"6. Tiền chi ra do bán, thanh lý bất động sản đầu tư_4991",40035
+"7. Tiền chi đầu tư, góp vốn vào các đơn vị khác_4992",40036
+"8. Tiền thu hồi đầu tư, góp vốn vào các đơn vị khác_4993",40037
+"9. Tiền thu cổ tức và lợi nhuận được chia từ các khoản đầu tư, góp vốn dài hạn_4994",40038
+II. Lưu chuyển tiền thuần từ hoạt động đầu tư_50,40039
+10. Tiền thu cổ tức đã có quyết định trả cổ tức năm trước_5436,40040
+11. Hoạt động đầu tư khác_9856,40041
 Lưu chuyển tiền tệ từ hoạt động tài chính_003,40042
-Tăng vốn cổ phần từ góp vốn và/hoặc phát hành cổ phiếu_51,40043
-Tiền thu từ phát hành giấy tờ có giá dài hạn đủ điều kiện tính vào vốn tự có và các khoản vốn vay dài hạn khác_52,40044
-Tiền chi thanh toán giấy tờ có giá dài hạn đủ điều kiện tính vào vốn tự có và các khoản vốn vay dài hạn khác_53,40045
-Cổ tức trả cho cổ đông và lợi nhuận đã chia_54,40046
-Tiền chi ra mua cổ phiếu quỹ_55,40047
-Tiền thu được do bán cổ phiếu quỹ_56,40048
-Chi từ các quỹ_57,40049
-Các khoản khác_58,40050
-Lưu chuyển tiền thuần từ hoạt động tài chính_60,40051
-Lưu chuyển tiền thuần trong kì_70,40052
-Tiền và các khoản tương đương tiền tại thời điểm đầu kì_80,40053
-Điều chỉnh ảnh hưởng của thay đổi tỷ giá_81,40054
+1. Tăng vốn cổ phần từ góp vốn và/hoặc phát hành cổ phiếu_51,40043
+2. Tiền thu từ phát hành giấy tờ có giá dài hạn đủ điều kiện tính vào vốn tự có và các khoản vốn vay dài hạn khác_52,40044
+3. Tiền chi thanh toán giấy tờ có giá dài hạn đủ điều kiện tính vào vốn tự có và các khoản vốn vay dài hạn khác_53,40045
+4. Cổ tức trả cho cổ đông và lợi nhuận đã chia_54,40046
+5. Tiền chi ra mua cổ phiếu quỹ_55,40047
+6. Tiền thu được do bán cổ phiếu quỹ_56,40048
+7. Chi từ các quỹ_57,40049
+8. Các khoản khác_58,40050
+III. Lưu chuyển tiền thuần từ hoạt động tài chính_60,40051
+IV. Lưu chuyển tiền thuần trong kì_70,40052
+V. Tiền và các khoản tương đương tiền tại thời điểm đầu kì_80,40053
+VI. Điều chỉnh ảnh hưởng của thay đổi tỷ giá_81,40054
 Giảm tiền và các khoản tương đương tiền do thanh lý công ty con_82,40055
-Tiền và các khoản tương đương tiền tại thời điểm cuối kì_90,40056
+VII. Tiền và các khoản tương đương tiền tại thời điểm cuối kì_90,40056
