@@ -3,7 +3,7 @@ import pandas
 import sqlite3
 import DefaultValues
 import requests
-import Erros
+import Error
 from bs4 import BeautifulSoup
 from collections import namedtuple
 import re
@@ -84,6 +84,7 @@ class CafeFScraper:
         )
 
         # du lieu tho trong trang tai ve
+        print(f"Dang lay du lieu tu duong dan: {self.url}")
         value_names, value_ids, raw_data = self.get_raw_data(self.url)
 
         # index cho cac du lieu
@@ -171,7 +172,7 @@ class CafeFScraper:
         table = soup.find("table", {"id": "tableContent"})
 
         if table is None:
-            raise Erros.CanNotScrapData(
+            raise Error.CanNotScrapData(
                 "Khong thay bang chua du lieu trong noi dung trang da tai")
 
         # Cac dong chua du lieu duoi dang html
@@ -212,11 +213,11 @@ class CafeFScraper:
             dang pandas.core.series.Series"""
 
         if raw_data.isnull().to_numpy().all():
-            raise Erros.EmptyTable("Khong co du lieu trong bang raw_data")
+            raise Error.EmptyTable("Khong co du lieu trong bang raw_data")
 
         column = raw_data.iloc[:, -1]
         if column.isnull().all():
-            raise Erros.EmptyColumn("Cot cuoi cung khong chua du lieu")
+            raise Error.EmptyColumn("Cot cuoi cung khong chua du lieu")
 
         return column
 

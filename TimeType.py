@@ -41,7 +41,7 @@ class Quarter:
         return self(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.year}-Q{self.quarter}"
+        return f"{self.year}_Q{self.quarter}"  # khong duoc dung '-'
 
     def prev(self, step: int):
         """dem lui thoi gian ve khoan tuong ung

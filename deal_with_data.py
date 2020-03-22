@@ -10,7 +10,11 @@ def solve_duplicate_index(data: pandas.Series):
     if data.index.is_unique:
         return data
 
+    print("WARNING: Phat hien co Index bi trung")
+    print("Dang tim cach xu ly...")
+
     # bi trung nhung chua du lieu giong nhau thi giu lay
+    print("Loc va giu lai cac Index trung nhung co cung gia tri")
 
     # du lieu cua cac unique index
     data_of_unique_index = data.loc[data.index.drop_duplicates(keep=False)]

@@ -17,6 +17,6 @@ for file in os.listdir(DEFAULT_DATA_DIR):
     try:
         df = pandas.read_csv(os.path.join(DEFAULT_DATA_DIR, file))
         with sqlite3.connect(DATABASE) as conn:
-            df.to_sql(file, conn, index=False)
+            df.to_sql(file.rstrip(".csv"), conn, index=False)
     except Exception as error:
         print(error)
