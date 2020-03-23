@@ -259,7 +259,7 @@ def main():
                     available_col.append(str(int_time_type))
 
             # Tong hop du lieu thu duoc
-            col_truck = pandas.Series()
+            col_truck = pandas.Series(dtype=float)
 
             for report in reports:
                 separate_print(f"( '{report.name}' )", "#")
@@ -350,3 +350,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    input("Press Enter to end process...")
