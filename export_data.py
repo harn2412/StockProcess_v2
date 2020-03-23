@@ -1,9 +1,8 @@
 """Export du lieu trong database ra file Excel"""
-import option_menu
-import TimeType
 import DefaultValues
 
 import pandas as pd
+from pandas.io.sql import DatabaseError
 from openpyxl import load_workbook
 
 import os
@@ -14,23 +13,23 @@ import sqlite3
 
 here = DefaultValues.FilePath.install_dir
 DATABASE = "database.db"
-REPORT_FORM_DIR = "report_forms"
-EXPORTED_DATA_DIR = "exported_data"
+REPORT_FORM_DIR = os.path.join(here, "report_forms")
+EXPORTED_DATA_DIR = os.path.join(here, "exported_data")
 xlsx_template = os.path.join(here, REPORT_FORM_DIR, "Template.xlsx")
 
 #  sql_table -> excel_table
-YEAR_TABLE_DIC = {
+YEAR_TABLES = {
     "balance_sheet": "BS Input (CafeF)",
-    "cash_flow": "CS input (CafeF)",
-    "cash_flow_direct": "CS input (CafeF)",
-    "income_statement": "IS input (CafeF)",
+    "cash_flow": "CS Input (CafeF)",
+    "cash_flow_direct": "CSD Input (CafeF)",
+    "income_statement": "IS Input (CafeF)",
 }
 
-QUARTER_TABLE_DIC = {
-    "balance_sheet": "Quarterly BS input (CafeF)",
-    "cash_flow": "Quarterly CS input (CafeF)",
-    "cash_flow_direct": "Quarterly CS input (CafeF)",
-    "income_statement": "Quarterly IS input (Cafef)",
+QUARTER_TABLES = {
+    "balance_sheet": "Quarterly BS Input (CafeF)",
+    "cash_flow": "Quarterly CS Input (CafeF)",
+    "cash_flow_direct": "Quarterly CSD Input (CafeF)",
+    "income_statement": "Quarterly IS Input (CafeF)",
 }
 
 
@@ -46,35 +45,39 @@ def create_stock_list(text):
     return stocks
 
 
-def to_excel(stock, year_dic, quarter_dic, excel_file_path):
-    """Chuyen bang du lieu thanh file Excel"""
+def to_excel(year_reports, quarter_reports, excel_file_path):
+    """Trich suat du lieu ra duoi dang file Excel
 
-    # Mo file Excel dung de luu ket qua
+    Args:
+        year_reports (dict): Cac bao cao nam
+        quarter_reports (dict): Cac bao cao quy
+        excel_file_path (str): Duong dan luu file
+
+    Returns:
+        None
+
+    """
+
     book = load_workbook(excel_file_path)
     with pd.ExcelWriter(excel_file_path, engine="openpyxl") as writer:
         # Cac buoc chuan bi de khong bi ghi de file
         writer.book = book
         writer.sheets = dict((ws.title, ws) for ws in book.worksheets)
 
-        # YEARS
-        for table in YEAR_TABLE_DIC.keys():
-            querry = ""
+    # YEARS
+    for name, data in year_reports.items():
+        name: str
+        data: pd.DataFrame
+        data.to_excel(writer, YEAR_TABLES[name])
 
-        for csv_file in worksheet_name.keys():
-            csv_file_bath = os.path.join(csv_dir_path, csv_file)
+    # QUARTER
+    for name, data in quarter_reports.items():
+        name: str
+        data: pd.DataFrame
+        data.to_excel(writer, QUARTER_TABLES[name])
 
-            # Kiem tra xem file co ton tai khong
-            if os.path.exists(csv_file_bath):
-                print("Chuan bi chuyen doi tap tin %s" % csv_file)
-                dframe = pd.read_csv(csv_file_bath)
-
-                # Chuyen gia tri ve dang so
-
-                dframe.to_excel(writer, worksheet_name[csv_file], index=False)
-                print("Hoan tat chuyen doi.")
-            else:
-                print('khong tim thay tap tin "%s", tien hanh bo qua' % csv_file)
-        writer.save()
+    # WRITE FILE
+    writer.save()
 
 
 def get_year_report(stock, number):
@@ -101,12 +104,16 @@ def get_year_report(stock, number):
 
     full_df = full_df[sorted(full_df.columns)[-number:]]
 
-    for table_name in YEAR_TABLE_DIC.keys():
-        template = pd.read_csv(
-            os.path.join(here, REPORT_FORM_DIR, (table_name + ".csv")), index_col="id"
-        )
+    for table_name in YEAR_TABLES.keys():
+        template = pd.read_csv(os.path.join(here, REPORT_FORM_DIR,
+                                            (table_name + ".csv")),
+                               index_col="id")
         df = full_df.reindex(template.index)
-        result[table_name] = df
+
+        if not df.empty:
+            result[table_name] = df
+        else:
+            pass
 
     return result
 
@@ -133,14 +140,18 @@ def get_quarter_report(stock, number):
         print("Khong du so luong bao cao")
         print(f"Hien chi co the lay toi da '{len(full_df.columns)}' ket qua")
 
-    full_df = full_df[sorted(full_df.column)[-number:]]
+    full_df = full_df[sorted(full_df.columns)[-number:]]
 
-    for table_name in QUARTER_TABLE_DIC.keys():
-        template = pd.read_csv(
-            os.path.join(here, REPORT_FORM_DIR, table_name, ".csv"), index_col="id"
-        )
+    for table_name in QUARTER_TABLES.keys():
+        template = pd.read_csv(os.path.join(here, REPORT_FORM_DIR,
+                                            (table_name + ".csv")),
+                               index_col="id")
         df = full_df.reindex(template.index)
-        result[table_name] = df
+
+        if not df.empty:
+            result[table_name] = df
+        else:
+            pass
 
     return result
 
@@ -150,11 +161,9 @@ def main():
     print("Chuong trinh dung de trich xuat du lieu ra file Excel")
 
     separate_print("INPUT STOCKS")
-    print(
-        "Nhap vao cac ma co phieu muon lay du lieu, "
-        'cac ma co phieu phan cach nhau bang dau phay ",". '
-        "Vi du: fpt, aaa, vnm"
-    )
+    print("Nhap vao cac ma co phieu muon lay du lieu, "
+          'cac ma co phieu phan cach nhau bang dau phay ",". '
+          "Vi du: fpt, aaa, vnm")
     usr_input_stocks = input(">: ")
     stocks = create_stock_list(usr_input_stocks)
 
@@ -165,13 +174,40 @@ def main():
     # Number of Quarter Report
     q_r_num = int(input("Ban muon trich suat bao nhieu bao cao QUY: "))
 
-    # TODO Build Report Form from Template
-    # YEARS
+    for stock in stocks:
+        separate_print(stock)
 
-    # TODO Get data form database
+        # GET YEARS and QUARTER
+        print("Dang trich xuat du lieu NAM...")
+        try:
+            year_report = get_year_report(stock, y_r_num)
+        except DatabaseError:
+            print("Khong tim thay du lieu NAM")
+            year_report = {}
 
-    # TODO Build Excel
-    pass
+        print("Dang trich xuat du lieu QUY...")
+        try:
+            quarter_report = get_quarter_report(stock, q_r_num)
+        except DatabaseError:
+            print("Khong tim thay du lieu QUY")
+            quarter_report = {}
+
+        # Pass if empty
+        if (not year_report) and (not quarter_report):
+            print(f"Khong co du lieu cho ma co phieu {stock}")
+            continue
+
+        print("Trich xuat du lieu hoan tat")
+
+        # Save to Excel (xlsx)
+        print("Chuan bi luu ket qua thanh file Excel...")
+        f_path = os.path.join(EXPORTED_DATA_DIR, (stock + ".xlsx"))
+        copyfile(xlsx_template, f_path)
+        print(f"Duong dan file: {f_path}")
+
+        to_excel(year_report, quarter_report, f_path)
+        print("Hoan tat qua trinh chuyen doi")
+        print("Chuyen qua ma co phieu tiep theo...")
 
 
 if __name__ == "__main__":

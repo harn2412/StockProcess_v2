@@ -250,13 +250,13 @@ def main():
 
             # Khong lay du lieu khi moc thoi gian da co trong co so du lieu
             # va khong yeu cau update / overwrite du lieu cu
-            if str(int_time_type
-                   ) in data_table.columns and update_act == "bypass":
-                print(f"Da ton tai du lieu cua {str(int_time_type)}")
-                print("Bo qua va den moc thoi gian tiep theo")
-                continue
-            else:
-                available_col.append(str(int_time_type))
+            if str(int_time_type) in data_table.columns:
+                if update_act == "bypass":
+                    print(f"Da ton tai du lieu cua {str(int_time_type)}")
+                    print("Bo qua va den moc thoi gian tiep theo")
+                    continue
+                else:
+                    available_col.append(str(int_time_type))
 
             # Tong hop du lieu thu duoc
             col_truck = pandas.Series()
