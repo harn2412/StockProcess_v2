@@ -6,6 +6,7 @@ import re
 import os
 import sqlite3
 from collections import namedtuple
+import logging
 
 import option_menu
 import Report
@@ -17,6 +18,15 @@ import deal_with_data
 
 import pandas
 import numpy
+
+# Log
+rootLogger = logging.getLogger()
+
+fileHandler = logging.FileHandler("result.log")
+rootLogger.addHandler(fileHandler)
+
+consoleHandler = logging.StreamHandler()
+rootLogger.addHandler(consoleHandler)
 
 
 class Info:
@@ -217,6 +227,7 @@ def main():
     scrap_data_fail = []
     empty_column = []
     unavailable_report = []
+    unknow_id = []
 
     for stock in stocks:
         separate_print(stock)
@@ -233,7 +244,7 @@ def main():
 
         try:
             # Tai du lieu neu co san
-            data_table = pandas.read_sql(f"SELECT * FROM \"{table_name}\"",
+            data_table = pandas.read_sql(f'SELECT * FROM "{table_name}"',
                                          conn,
                                          index_col="id")
 
@@ -278,9 +289,13 @@ def main():
                         print(f"Khong tim thay du lieu tai moc thoi gian "
                               f"{str(int_time_type)} va 3 moc truoc do")
 
-                        result = Result(stock, False, "EmptTable", report.name)
+                        if i == 0:
+                            # lan lay dau tien ma khong co thi xem nhu
+                            # khong co bao cao do
 
-                        unavailable_report.append(result)
+                            result = Result(stock, False, "EmptTable",
+                                            report.name)
+                            unavailable_report.append(result)
 
                     except Error.CanNotScrapData:
                         if reload_fail_page:
@@ -332,6 +347,10 @@ def main():
                     print("\t", new_id)
                 print("Vi vay se khong cap nhat du lieu nay, "
                       "vui long kiem tra lai sau")
+
+                result = Result(stock, False, "unknow_id", str(int_time_type))
+
+                unknow_id.append(result)
             finally:
                 print("Chuyen qua lay du lieu cua bao cao khac...")
 
@@ -351,6 +370,33 @@ def main():
                           conn,
                           if_exists="replace",
                           index_label="id")
+
+    # Ghi ket qua:
+    # Cac co phieu bi thieu bang du lieu
+    ctime = datetime.datetime.now()
+    rootLogger.warning(
+        f"====="
+        f" Result at: {ctime.strftime('%Y-%m-%d %H:%M:%S')} "
+        f"=====")
+    if unavailable_report:
+        rootLogger.warning("[Cac co phieu bi thieu bang du lieu]")
+        for result in unavailable_report:
+            stock, _, _, comment = result
+            rootLogger.warning(f"{stock}: {comment}")
+
+    # Cac co phieu bi thieu cot du lieu
+    if empty_column:
+        rootLogger.warning("[Cac co phieu bi thieu cot du lieu]")
+        for result in empty_column:
+            stock, _, _, comment = result
+            rootLogger.warning(f"{stock}: {comment}")
+
+    # Cac co phieu bi co ID chua khai bao
+    if unknow_id:
+        rootLogger.warning("[Cac co phieu co ID chua khai bao]")
+        for result in unknow_id:
+            stock, _, _, comment = result
+            rootLogger.warning(f"{stock}: {comment}")
 
 
 if __name__ == "__main__":
