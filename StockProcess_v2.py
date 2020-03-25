@@ -317,13 +317,18 @@ def main():
             print("Tien hanh cap nhat lai index...")
             querry = "SELECT * FROM cafef_index"
             cafef_id = pandas.read_sql(querry, conn, index_col="id")
+
+            new_ids = set(col_truck.index) - set(cafef_id.index)
             try:
+                if new_ids:
+                    raise KeyError  # for old ver pandas
+
                 col_truck.index = cafef_id.loc[col_truck.index, "general_id"]
                 tbl_frame[str(int_time_type)] = col_truck
                 print("Hoan tat cap nhat Index")
             except KeyError:
                 print(f"Co xuat hien cac ID moi trong bao cao, gom co:")
-                for new_id in (set(col_truck.index) - set(cafef_id.index)):
+                for new_id in new_ids:
                     print("\t", new_id)
                 print("Vi vay se khong cap nhat du lieu nay, "
                       "vui long kiem tra lai sau")
