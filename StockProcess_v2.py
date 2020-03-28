@@ -20,12 +20,19 @@ import pandas
 import numpy
 
 # Log
-rootLogger = logging.getLogger()
+rootLogger = logging.getLogger("StockProcess_v2")
+rootLogger.setLevel(logging.DEBUG)
 
-fileHandler = logging.FileHandler("result.log")
+fileHandler = logging.FileHandler(os.path.join(
+    DefaultValues.FilePath.install_dir,
+    "logs",
+    "StockProcess_v2.log"
+))
+fileHandler.setLevel(logging.DEBUG)
 rootLogger.addHandler(fileHandler)
 
 consoleHandler = logging.StreamHandler()
+consoleHandler.setLevel(logging.INFO)
 rootLogger.addHandler(consoleHandler)
 
 

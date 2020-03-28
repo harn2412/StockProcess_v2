@@ -5,4 +5,4 @@
 /exported_data/
 /dev/
 /report_forms/Template.xlsx
-/result.log
+*.log

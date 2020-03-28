@@ -1,5 +1,7 @@
 """Tinh toan chi so Growth rate of EPS theo QUY va thong ke lai"""
 import sqlite3
+import logging
+import os
 
 import pandas
 
@@ -9,6 +11,21 @@ from StockProcess_v2 import separate_print
 from formula import quarterly_ratio
 
 DATABASE = DefaultValues.FilePath.database_path
+LOG_DIR = "logs"
+
+# Log
+logger = logging.getLogger("compare_gr_eps")
+logger.setLevel(logging.DEBUG)
+
+fileHandler = logging.FileHandler(
+    os.path.join(LOG_DIR, DefaultValues.FilePath.install_dir, LOG_DIR,
+                 "compare_growth_rate_eps.log"))
+fileHandler.setLevel(logging.INFO)
+logger.addHandler(fileHandler)
+
+consoleHandler = logging.StreamHandler()
+consoleHandler.setLevel(logging.ERROR)
+logger.addHandler(consoleHandler)
 
 
 def get_all_quarter_reports(database):
@@ -23,11 +40,9 @@ def get_all_quarter_reports(database):
     """
 
     conn = sqlite3.connect(database)
-    query = (
-        "SELECT name "
-        "FROM sqlite_master "
-        "WHERE type='table' AND name LIKE '%_QUARTERS';"
-    )
+    query = ("SELECT name "
+             "FROM sqlite_master "
+             "WHERE type='table' AND name LIKE '%_QUARTERS';")
 
     ser = pandas.read_sql(query, conn)["name"]  # type: ser: pandas.Series
 
@@ -87,8 +102,7 @@ def main():
 
         try:
             growth_rate_of_eps = quarterly_ratio.F1.f_growth_rate_of_eps_v2(
-                first_report.dropna(), sqly_report.dropna()
-            )
+                first_report.dropna(), sqly_report.dropna())
         except (KeyError, IndexError):
             print("Khong tim thay ID '20022' trong bao cao")
             print("Chuyen qua co phieu ke tiep...")
@@ -104,10 +118,11 @@ def main():
         result = result.head(limit)
 
     separate_print("RESULT")
-    with pandas.option_context('display.max_rows', None):
+    with pandas.option_context("display.max_rows", None):
         print(result)
 
-    show_false = input("Ban co muon hien cac co phieu khong lay duoc du lieu khong (y/n)?")
+    show_false = input(
+        "Ban co muon hien cac co phieu khong lay duoc du lieu khong (y/n)?")
     if show_false == "y":
         separate_print("FALSE RESULT")
         print("Cac co phieu bi thieu du lieu QUY:")
@@ -117,6 +132,14 @@ def main():
         print("Cac co phieu bi thieu du lieu ID 20022:")
         for stock in miss_value:
             print(stock)
+
+    logger.info("=====")
+    logger.info("[RESUT]")
+    logger.info(f"{result}")
+    logger.info("[Thieu du lieu QUY]")
+    logger.info(f"{miss_report}")
+    logger.info("[Thieu du lieu ID 20022]")
+    logger.info(f"{miss_value}")
 
 
 if __name__ == "__main__":

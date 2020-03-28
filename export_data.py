@@ -1,5 +1,6 @@
 """Export du lieu trong database ra file Excel"""
 import DefaultValues
+import TimeType
 
 import pandas as pd
 from pandas.io.sql import DatabaseError
@@ -80,12 +81,13 @@ def to_excel(year_reports, quarter_reports, excel_file_path):
     writer.save()
 
 
-def get_year_report(stock, number):
+def get_year_report(stock, number, years):
     """Lay cac ban du lieu cua bao cao nam
 
     Args:
         stock: Ma co phieu
         number: So luong bao cao
+        years: Danh sach cac cot trong table du lieu
 
     Returns:
         dict: Cac bang bao cao IS, BS, CF, CFD
@@ -102,15 +104,14 @@ def get_year_report(stock, number):
         print("Khong du so luong bao cao")
         print(f"Hien chi co the lay toi da '{len(full_df.columns)}' ket qua")
 
-    full_df = full_df[sorted(full_df.columns)[-number:]]
-
     for table_name in YEAR_TABLES.keys():
         template = pd.read_csv(os.path.join(here, REPORT_FORM_DIR,
                                             (table_name + ".csv")),
                                index_col="id")
-        df = full_df.reindex(template.index)
+        df = pd.DataFrame(index=template.index, columns=years)
+        df.update(full_df)
 
-        if not df.empty:
+        if not df.isna().all().all():
             result[table_name] = df
         else:
             pass
@@ -118,12 +119,13 @@ def get_year_report(stock, number):
     return result
 
 
-def get_quarter_report(stock, number):
+def get_quarter_report(stock, number, quarters):
     """Lay cac ban du lieu cua bao cao quy
 
     Args:
         stock: Ma co phieu
         number: So luong bao cao
+        quarters: Danh sach cac cot trong table du lieu
 
     Returns:
         dict: Cac bang bao cao IS, BS, CF, CFD
@@ -140,15 +142,14 @@ def get_quarter_report(stock, number):
         print("Khong du so luong bao cao")
         print(f"Hien chi co the lay toi da '{len(full_df.columns)}' ket qua")
 
-    full_df = full_df[sorted(full_df.columns)[-number:]]
-
     for table_name in QUARTER_TABLES.keys():
         template = pd.read_csv(os.path.join(here, REPORT_FORM_DIR,
                                             (table_name + ".csv")),
                                index_col="id")
-        df = full_df.reindex(template.index)
+        df = pd.DataFrame(index=template.index, columns=quarters)
+        df.update(full_df)
 
-        if not df.empty:
+        if not df.isna().all().all():
             result[table_name] = df
         else:
             pass
@@ -169,14 +170,25 @@ def main():
 
     separate_print("HOW MANY REPORT?")
     # Number of Year Report
+    print("Ban muon lay du lieu tu nam nao?")
+    year = int(input(">: "))
     print("Ban muon trich xuat bao nhieu bao cao NAM? "
-          "(0: Lay het tat ca; -1: Khong lay bao cao NAM)")
+          "(-1: Khong lay bao cao NAM)")
     y_r_num = int(input(">: "))
 
+    year_obj = TimeType.Year(year)
+    years = [str(year_obj.prev(i)) for i in range(0, y_r_num)][::-1]
+
     # Number of Quarter Report
+    print("Ban muon lay du lieu tu QUY nao?")
+    year = int(input("NAM: "))
+    quarter = int(input("QUY: "))
     print("Ban muon trich xuat bao nhieu bao cao QUY? "
-          "(0: Lay het tat ca; -1: Khong lay bao cao QUY)")
+          "(-1: Khong lay bao cao QUY)")
     q_r_num = int(input(">: "))
+
+    quarter_obj = TimeType.Quarter(year, quarter)
+    quarters = [str(quarter_obj.prev(i)) for i in range(0, q_r_num)][::-1]
 
     for stock in stocks:
         separate_print(stock)
@@ -187,7 +199,7 @@ def main():
             if y_r_num == -1:
                 year_report = {}
             else:
-                year_report = get_year_report(stock, y_r_num)
+                year_report = get_year_report(stock, y_r_num, years)
         except DatabaseError:
             print("Khong tim thay du lieu NAM")
             year_report = {}
@@ -197,7 +209,7 @@ def main():
             if q_r_num == -1:
                 quarter_report = {}
             else:
-                quarter_report = get_quarter_report(stock, q_r_num)
+                quarter_report = get_quarter_report(stock, q_r_num, quarters)
         except DatabaseError:
             print("Khong tim thay du lieu QUY")
             quarter_report = {}
