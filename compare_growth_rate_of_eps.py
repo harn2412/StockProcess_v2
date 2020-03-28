@@ -48,7 +48,7 @@ def main():
     # Danh sach bao cao QUY cua cac co phieu hien co
     quarter_reports = get_all_quarter_reports(DATABASE)
 
-    result = pandas.Series()  # Chua ket qua
+    result = pandas.Series(dtype=float)  # Chua ket qua
     miss_report = []  # Bi thieu du lieu bao cao QUY
     miss_value = []  # Bi thieu du lieu cua ID 20022
     conn = sqlite3.connect(DATABASE)
@@ -82,7 +82,7 @@ def main():
             growth_rate_of_eps = quarterly_ratio.F1.f_growth_rate_of_eps_v2(
                 first_report.dropna(), sqly_report.dropna()
             )
-        except KeyError:
+        except (KeyError, IndexError):
             print("Khong tim thay ID '20022' trong bao cao")
             print("Chuyen qua co phieu ke tiep...")
             miss_value.append(stock)
