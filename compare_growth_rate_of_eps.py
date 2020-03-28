@@ -89,7 +89,7 @@ def main():
             growth_rate_of_eps = quarterly_ratio.F1.f_growth_rate_of_eps_v2(
                 first_report.dropna(), sqly_report.dropna()
             )
-        except KeyError:
+        except (KeyError, IndexError):
             print("Khong tim thay ID '20022' trong bao cao")
             print("Chuyen qua co phieu ke tiep...")
             miss_value.append(stock)
