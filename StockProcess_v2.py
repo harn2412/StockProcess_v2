@@ -327,6 +327,12 @@ def main():
 
                     break
 
+            # Bo qua cac moc thoi gian khong chua bat ky du lieu nao
+            if col_truck.isna().all():
+                print(f"Khong co bat ky du lieu nao tai: {int_time_type}")
+                print("Chuyen qua lay du lieu cua bao cao khac...")
+                continue
+
             # Cap nhat lai index (dung general_id)
             separate_print("Update General ID", "+")
             print("Tien hanh cap nhat lai index...")
