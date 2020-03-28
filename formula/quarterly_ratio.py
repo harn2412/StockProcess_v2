@@ -21,6 +21,24 @@ class F1:
         """
         return (ser[10097] + ser[10104]) / 10000
 
+    @staticmethod
+    def f_growth_rate_of_eps_v2(ser1, ser2):
+        """Tinh toan growth rate of EPS (50020) phien ban rut gon
+
+        50020 = 20022 / SQLY 20022 - 1
+
+        Args:
+            ser1: 'obj'Serial : Chua du lieu co san cua QUY
+            ser2: 'obj'Serial : Chua du lieu co san cua cung QUY nam truoc
+                (SQLY) Same Quarter Last Year
+
+        Returns:
+            float: Ket qua
+
+        """
+
+        return ser1[20022] / ser2[20022] - 1
+
 
 class F7:
     """F7: Cong thuc tinh toan tu du lieu F6"""

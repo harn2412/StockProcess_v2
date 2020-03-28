@@ -169,10 +169,14 @@ def main():
 
     separate_print("HOW MANY REPORT?")
     # Number of Year Report
-    y_r_num = int(input("Ban muon trich suat bao nhieu bao cao NAM: "))
+    print("Ban muon trich xuat bao nhieu bao cao NAM? "
+          "(0: Lay het tat ca; -1: Khong lay bao cao NAM)")
+    y_r_num = int(input(">: "))
 
     # Number of Quarter Report
-    q_r_num = int(input("Ban muon trich suat bao nhieu bao cao QUY: "))
+    print("Ban muon trich xuat bao nhieu bao cao QUY? "
+          "(0: Lay het tat ca; -1: Khong lay bao cao QUY)")
+    q_r_num = int(input(">: "))
 
     for stock in stocks:
         separate_print(stock)
@@ -180,14 +184,20 @@ def main():
         # GET YEARS and QUARTER
         print("Dang trich xuat du lieu NAM...")
         try:
-            year_report = get_year_report(stock, y_r_num)
+            if y_r_num == -1:
+                year_report = {}
+            else:
+                year_report = get_year_report(stock, y_r_num)
         except DatabaseError:
             print("Khong tim thay du lieu NAM")
             year_report = {}
 
         print("Dang trich xuat du lieu QUY...")
         try:
-            quarter_report = get_quarter_report(stock, q_r_num)
+            if q_r_num == -1:
+                quarter_report = {}
+            else:
+                quarter_report = get_quarter_report(stock, q_r_num)
         except DatabaseError:
             print("Khong tim thay du lieu QUY")
             quarter_report = {}
