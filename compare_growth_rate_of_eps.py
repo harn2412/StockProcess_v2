@@ -45,10 +45,17 @@ def main():
     quarter = int(input("QUY: "))
     time_type = TimeType.Quarter(year, quarter)
 
+    print("Nhap vao gioi han so ket qua hien thi "
+          "(Bo trong de hien thi tat ca)")
+    try:
+        limit = int(input(">: "))
+    except ValueError:
+        limit = None
+
     # Danh sach bao cao QUY cua cac co phieu hien co
     quarter_reports = get_all_quarter_reports(DATABASE)
 
-    result = pandas.Series()  # Chua ket qua
+    result = pandas.Series(dtype=float)  # Chua ket qua
     miss_report = []  # Bi thieu du lieu bao cao QUY
     miss_value = []  # Bi thieu du lieu cua ID 20022
     conn = sqlite3.connect(DATABASE)
@@ -93,6 +100,9 @@ def main():
 
     result = result.sort_values(ascending=False)
 
+    if limit is not None:
+        result = result.head(limit)
+
     separate_print("RESULT")
     with pandas.option_context('display.max_rows', None):
         print(result)
@@ -104,7 +114,7 @@ def main():
         for stock in miss_report:
             print(stock)
 
-        print("Cac co phieu bi thieu du lieu ID 20020:")
+        print("Cac co phieu bi thieu du lieu ID 20022:")
         for stock in miss_value:
             print(stock)
 
