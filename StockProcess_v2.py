@@ -20,8 +20,8 @@ import pandas
 import numpy
 
 # Log
-rootLogger = logging.getLogger("StockProcess_v2")
-rootLogger.setLevel(logging.DEBUG)
+logger = logging.getLogger("StockProcess_v2")
+logger.setLevel(logging.DEBUG)
 
 fileHandler = logging.FileHandler(os.path.join(
     DefaultValues.FilePath.install_dir,
@@ -29,11 +29,11 @@ fileHandler = logging.FileHandler(os.path.join(
     "StockProcess_v2.log"
 ))
 fileHandler.setLevel(logging.DEBUG)
-rootLogger.addHandler(fileHandler)
+logger.addHandler(fileHandler)
 
 consoleHandler = logging.StreamHandler()
 consoleHandler.setLevel(logging.INFO)
-rootLogger.addHandler(consoleHandler)
+logger.addHandler(consoleHandler)
 
 
 class Info:
@@ -387,29 +387,29 @@ def main():
     # Ghi ket qua:
     # Cac co phieu bi thieu bang du lieu
     ctime = datetime.datetime.now()
-    rootLogger.warning(
+    logger.warning(
         f"====="
         f" Result at: {ctime.strftime('%Y-%m-%d %H:%M:%S')} "
         f"=====")
     if unavailable_report:
-        rootLogger.warning("[Cac co phieu bi thieu bang du lieu]")
+        logger.warning("[Cac co phieu bi thieu bang du lieu]")
         for result in unavailable_report:
             stock, _, _, comment = result
-            rootLogger.warning(f"{stock}: {comment}")
+            logger.warning(f"{stock}: {comment}")
 
     # Cac co phieu bi thieu cot du lieu
     if empty_column:
-        rootLogger.warning("[Cac co phieu bi thieu cot du lieu]")
+        logger.warning("[Cac co phieu bi thieu cot du lieu]")
         for result in empty_column:
             stock, _, _, comment = result
-            rootLogger.warning(f"{stock}: {comment}")
+            logger.warning(f"{stock}: {comment}")
 
     # Cac co phieu bi co ID chua khai bao
     if unknow_id:
-        rootLogger.warning("[Cac co phieu co ID chua khai bao]")
+        logger.warning("[Cac co phieu co ID chua khai bao]")
         for result in unknow_id:
             stock, _, _, comment = result
-            rootLogger.warning(f"{stock}: {comment}")
+            logger.warning(f"{stock}: {comment}")
 
 
 if __name__ == "__main__":

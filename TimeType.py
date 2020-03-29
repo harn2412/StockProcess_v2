@@ -1,5 +1,6 @@
 """Tao ra cac thong so thoi gian dung trong URL tuong ung voi bao cao Nam va Quy"""
 from datetime import datetime
+import re
 
 
 class Year:
@@ -28,6 +29,21 @@ class Year:
 
     def __repr__(self):
         return f"TimeType.Year(year={self.year}, quarter={self.quarter})"
+
+    @staticmethod
+    def check_format(col_label):
+        """Kiem tra xem ten cua cot co viet dung dinh dang NAM khong
+
+        Args:
+            col_label (str): Ten cot
+
+        Returns:
+            bool: True neu dung va False neu khong dung
+
+        """
+
+        pattern = re.compile(r"^\d{4}$")
+        return True if pattern.search(col_label) else False
 
 
 class Quarter:
@@ -60,6 +76,21 @@ class Quarter:
 
     def __repr__(self):
         return f"TimeType.Quarter(year={self.year}, quarter={self.quarter})"
+
+    @staticmethod
+    def check_format(col_label):
+        """Kiem tra xem ten cua cot co viet dung dinh dang QUY khong
+
+        Args:
+            col_label (str): Ten cot
+
+        Returns:
+            bool: True neu dung va False neu khong dung
+
+        """
+
+        pattern = re.compile(r"^\d{4}_Q[1234]$")
+        return True if pattern.search(col_label) else False
 
 
 def now():

@@ -6,3 +6,4 @@
 /dev/
 /report_forms/Template.xlsx
 *.log
+/import_files/*

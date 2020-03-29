@@ -8,6 +8,9 @@ class FilePath:
     # thu muc cai dat
     install_dir = path.dirname(path.abspath(__file__))
 
+    # thu muc luu cac file dung de import vao co so du lieu
+    import_dir = path.join(install_dir, "import_files")
+
     # thu muc chua cac bang gia tri mac dinh
     default_data_dir = path.join(install_dir, "default_data")
 

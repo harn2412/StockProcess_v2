@@ -10,13 +10,19 @@ import sqlite3
 # 3th party
 import pandas
 
-DEFAULT_DATA_DIR = FilePath.default_data_dir
-DATABASE = FilePath.database_path
 
-for file in os.listdir(DEFAULT_DATA_DIR):
-    try:
-        df = pandas.read_csv(os.path.join(DEFAULT_DATA_DIR, file))
-        with sqlite3.connect(DATABASE) as conn:
-            df.to_sql(file.rstrip(".csv"), conn, index=False)
-    except Exception as error:
-        print(error)
+def main():
+    default_data_dir = FilePath.default_data_dir
+    database = FilePath.database_path
+
+    for file in os.listdir(default_data_dir):
+        try:
+            df = pandas.read_csv(os.path.join(default_data_dir, file))
+            with sqlite3.connect(database) as conn:
+                df.to_sql(file.rstrip(".csv"), conn, index=False)
+        except Exception as error:
+            print(error)
+
+
+if __name__ == '__main__':
+    main()
