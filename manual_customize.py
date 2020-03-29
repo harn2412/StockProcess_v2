@@ -226,7 +226,7 @@ def edit_by_import_file(data, valid_id, fm_checker):
             print(f"'{column}' Khong phai ten hop le vui long kiem tra lai")
             return data
 
-        if new_data[column].dtype != float:
+        if new_data[column].dtype not in (float, int):
             print(f"'{column}' chua dinh danh khong phu hop ({new_data[column].dtype})")
             return data
 
