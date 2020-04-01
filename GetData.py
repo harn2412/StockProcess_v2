@@ -92,7 +92,7 @@ class CafeFScraper:
 
         # Tao bang DataFrame de xu ly du lieu
         raw_data = pandas.DataFrame(
-            data=raw_data, index=index)  # chuyen ve DataFrame de xu ly ve sau
+            data=raw_data, index=index, dtype='float64')  # chuyen ve DataFrame de xu ly ve sau
 
         # lay du lieu cua cot cuoi cung
         self.data: pandas.Series = self.check_data(raw_data)
