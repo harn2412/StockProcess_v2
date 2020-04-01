@@ -99,6 +99,7 @@ def get_year_report(stock, number, years):
 
     query = f"SELECT * FROM {stock}_YEARS"
     full_df = pd.read_sql(query, conn, index_col="id")
+    full_df = full_df.astype("float64")  # dam bao du lieu deu la so float
 
     if len(full_df.columns) < number:
         print("Khong du so luong bao cao")
@@ -108,7 +109,7 @@ def get_year_report(stock, number, years):
         template = pd.read_csv(os.path.join(here, REPORT_FORM_DIR,
                                             (table_name + ".csv")),
                                index_col="id")
-        df = pd.DataFrame(index=template.index, columns=years)
+        df = pd.DataFrame(index=template.index, columns=years, dtype="float64")
         df.update(full_df)
 
         if not df.isna().all().all():
@@ -137,6 +138,7 @@ def get_quarter_report(stock, number, quarters):
 
     query = f"SELECT * FROM {stock}_QUARTERS"
     full_df = pd.read_sql(query, conn, index_col="id")
+    full_df = full_df.astype("float64")  # dam bao du lieu deu la so float
 
     if len(full_df.columns) < number:
         print("Khong du so luong bao cao")
@@ -146,7 +148,7 @@ def get_quarter_report(stock, number, quarters):
         template = pd.read_csv(os.path.join(here, REPORT_FORM_DIR,
                                             (table_name + ".csv")),
                                index_col="id")
-        df = pd.DataFrame(index=template.index, columns=quarters)
+        df = pd.DataFrame(index=template.index, columns=quarters, dtype="float64")
         df.update(full_df)
 
         if not df.isna().all().all():
