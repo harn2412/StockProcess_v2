@@ -29,7 +29,7 @@ def solve_duplicate_index(data: pandas.Series):
     for index in duplicate_index:
         data_of_that_index = data[index]
 
-        if data_of_that_index.nunique() != 1:
+        if data_of_that_index.nunique() > 1:
             print(f"Loai bo [{index}] vi chua nhieu du lieu khac nhau")
             continue
 
