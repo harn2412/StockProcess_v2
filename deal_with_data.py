@@ -31,15 +31,16 @@ def solve_duplicate_index(data: pandas.Series):
 
         if data_of_that_index.nunique() > 1:
             print(f"Loai bo [{index}] vi chua nhieu du lieu khac nhau")
+            print(data_of_that_index.to_list())
             continue
 
         # Loai bo gia tri NaN
         data_of_that_index.dropna(inplace=True)
 
-        try:
-            will_be_keep = data_of_that_index[0]
-        except KeyError:
+        if data_of_that_index.empty:
             will_be_keep = numpy.nan
+        else:
+            will_be_keep = data_of_that_index.iloc[0]
 
         print(f"Giu lay [{index}] = {will_be_keep}")
         keep_index.append(index)
