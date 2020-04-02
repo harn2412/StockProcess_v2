@@ -1,6 +1,7 @@
 """Doi pho giai quyet cac van de voi du lieu thu duoc khong phu hop
 Vi du: bi trung Index, thong nhat lai index truoc khi luu, ..."""
 import pandas
+import numpy
 
 
 def solve_duplicate_index(data: pandas.Series):
@@ -35,8 +36,13 @@ def solve_duplicate_index(data: pandas.Series):
         # Loai bo gia tri NaN
         data_of_that_index.dropna(inplace=True)
 
-        print(f"Giu lay [{index}] = {data_of_that_index[0]}")
+        try:
+            will_be_keep = data_of_that_index[0]
+        except KeyError:
+            will_be_keep = numpy.nan
+
+        print(f"Giu lay [{index}] = {will_be_keep}")
         keep_index.append(index)
-        keep_value.append(data_of_that_index[0])
+        keep_value.append(will_be_keep)
 
     return data_of_unique_index.append(pandas.Series(keep_value, keep_index))
