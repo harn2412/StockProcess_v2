@@ -17,7 +17,6 @@ import DefaultValues
 import deal_with_data
 
 import pandas
-import numpy
 
 # Log
 logger = logging.getLogger("StockProcess_v2")
@@ -379,7 +378,7 @@ def main():
         print("Da hoan tat viec lay du lieu")
         # xoa du lieu cu neu co yeu cau
         if update_act == "overwrite":
-            data_table[available_col] = numpy.nan
+            data_table.drop(available_col, inplace=True, axis=1)
 
         # cap nhat du lieu moi vao bang du lieu
         new_data = pandas.DataFrame(tbl_frame)
