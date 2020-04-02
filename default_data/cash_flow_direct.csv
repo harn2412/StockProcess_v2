@@ -3,7 +3,7 @@ id,name
 40002,Thu nhập lãi và các khoản thu nhập tương tự đạt được
 40003,Chi phí lãi và các chi phí tương tự đã trả
 40004,Thu nhập từ hoạt động dịch vụ nhận được
-40005,"Chênh lệch số tiền thực thu / (thực chi) từ hoạt động kinh doanh (ngoại tệ, vàng bạc, chứng khoán"
+40005,"Chênh lệch số tiền thực thu / (thực chi) từ hoạt động kinh doanh (ngoại tệ, vàng bạc, chứng khoán)"
 40006,Thu nhập thuần từ chứng khoán kinh doanh và chứng khoán sẵn sàng để bán
 40007,Thu nhập / (chi phí) khác
 40008,"Tiền thu từ các khoản nợ đã được xử lý xóa, bù đắp bằng nguồn dự phòng rủi ro"
@@ -15,7 +15,7 @@ id,name
 40014,(Tăng) / giảm về kinh doanh chứng khoán
 40015,(Tăng) / giảm các công cụ tài chính phái sinh và các khoản nợ tài chính khác
 40016,(Tăng) / giảm các khoản cho vay khách hàng
-40017,"Giảm nguồn dự phòng để bù đắp tổn thất các khoản (tín dung, chứng khoán, đầu tư dài hạn"
+40017,"Giảm nguồn dự phòng để bù đắp tổn thất các khoản (tín dung, chứng khoán, đầu tư dài hạn)"
 40018,(Tăng) / giảm khác về tài sản hoạt động
 40019,Thay đổi công nợ hoạt động
 40020,Tăng / (giảm) nợ chính phủ và Ngân hàng Nhà nước Việt Nam
@@ -28,13 +28,13 @@ id,name
 40027,Chi từ các quỹ
 40028,Lưu chuyển tiền thuần từ hoạt động kinh doanh
 40029,Lưu chuyển tiền từ hoạt động đầu tư
-40030,Mua sắm tài sản cố định
+40030,Mua sắm tài sản cố định (*)
 40031,"Tiền thu từ thanh lý, nhượng bán tài sản cố định"
-40032,"Tiền chi từ thanh lý, nhượng bán tài sản cố định"
-40033,Mua sắm bất động sản đầu tư
+40032,"Tiền chi từ thanh lý, nhượng bán tài sản cố định (*)"
+40033,Mua sắm bất động sản đầu tư (*)
 40034,"Tiền thu từ bán, thanh lý bất động sản đầu tư"
-40035,"Tiền chi ra do bán, thanh lý bất động sản đầu tư"
-40036,"Tiền chi đầu tư, góp vốn vào các đơn vị khác"
+40035,"Tiền chi ra do bán, thanh lý bất động sản đầu tư (*)"
+40036,"Tiền chi đầu tư, góp vốn vào các đơn vị khác (*)"
 40037,"Tiền thu hồi đầu tư, góp vốn vào các đơn vị khác"
 40038,"Tiền thu cổ tức và lợi nhuận được chia từ các khoản đầu tư, góp vốn dài hạn"
 40039,Lưu chuyển tiền thuần từ hoạt động đầu tư
@@ -43,9 +43,9 @@ id,name
 40042,Lưu chuyển tiền tệ từ hoạt động tài chính
 40043,Tăng vốn cổ phần từ góp vốn và/hoặc phát hành cổ phiếu
 40044,Tiền thu từ phát hành giấy tờ có giá dài hạn đủ điều kiện tính vào vốn tự có và các khoản vốn vay dài hạn khác
-40045,Tiền chi thanh toán giấy tờ có giá dài hạn đủ điều kiện tính vào vốn tự có và các khoản vốn vay dài hạn khác
-40046,Cổ tức trả cho cổ đông và lợi nhuận đã chia
-40047,Tiền chi ra mua cổ phiếu quỹ
+40045,Tiền chi thanh toán giấy tờ có giá dài hạn đủ điều kiện tính vào vốn tự có và các khoản vốn vay dài hạn khác (*)
+40046,Cổ tức trả cho cổ đông và lợi nhuận đã chia (*)
+40047,Tiền chi ra mua cổ phiếu quỹ (*)
 40048,Tiền thu được do bán cổ phiếu quỹ
 40049,Chi từ các quỹ
 40050,Các khoản khác

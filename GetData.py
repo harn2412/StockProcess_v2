@@ -10,32 +10,27 @@ import re
 import numpy
 
 
-def get_index_name(text):
+def get_index_name(text: str):
     """Lam dep phan ten cua cac thong so"""
 
     # Loai bo khoang trang truoc va sau ten thong so
-    pattern = re.compile(r"\s*(\w.*\w)\s*")
-    search_result = pattern.search(text)
+    text = text.strip()
 
-    if search_result is not None:
-
-        index_name = search_result.group(1)
-        return index_name
-
-    else:
-        return text
+    return text
 
 
 def remove_bullets_numbering(text: str):
     """Loai bo cac phan danh so o dau ten gia tri, Vi du "I -" , "1. ", ..."""
 
-    pattern = re.compile(r'[\d\-.]+\s?([(]?.*)')
-    search_result = pattern.search(text)
+    # Xoa danh so kieu la ma, VD: I - , II.
+    pattern = re.compile(r"^[IVXivx]+\s?[-.]\s?")
+    text = pattern.sub("", text)
 
-    try:
-        return search_result.group(1)
-    except AttributeError:
-        return text
+    # Xoa danh so, dau gach va khoan trang o dau, VD: 1.1.1
+    pattern = re.compile(r"^[\d.\-\s]+")
+    text = pattern.sub("", text)
+
+    return text
 
 
 def convert_to_number(text):
@@ -88,7 +83,7 @@ class CafeFScraper:
         value_names, value_ids, raw_data = self.get_raw_data(self.url)
 
         # index cho cac du lieu
-        index = self.create_index(value_names, value_ids)
+        index = self.create_index(value_names, value_ids, report_type.code)
 
         # Tao bang DataFrame de xu ly du lieu
         raw_data = pandas.DataFrame(
@@ -222,14 +217,14 @@ class CafeFScraper:
         return column
 
     @staticmethod
-    def create_index(value_names, value_ids):
+    def create_index(value_names, value_ids, report_code):
         """Ket hop ten gia tri va id lai de ra index cho gia tri thu duoc
         (Vi cafef co dung trung ten va id cho du lieu trong bang du lieu)"""
 
         index = []
 
-        for _name, _id in zip(value_names, value_ids):
-            new_index = _name, _id
-            index.append("_".join(new_index))
+        for value_name, value_id in zip(value_names, value_ids):
+            new_index = f"{report_code}_{value_id}_{value_name}"
+            index.append(new_index)
 
         return pandas.Index(index)
