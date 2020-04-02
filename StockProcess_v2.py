@@ -347,25 +347,33 @@ def main():
             cafef_id = pandas.read_sql(querry, conn, index_col="id")
 
             new_ids = set(col_truck.index) - set(cafef_id.index)
-            try:
-                if new_ids:
-                    raise KeyError  # for old ver pandas
 
-                col_truck.index = cafef_id.loc[col_truck.index, "general_id"]
-                tbl_frame[str(int_time_type)] = col_truck
-                print("Hoan tat cap nhat Index")
-            except KeyError:
-                print(f"Co xuat hien cac ID moi trong bao cao, gom co:")
+            if new_ids:
+                print("Co xuat hien cac ID moi trong bao cao, gom co:")
                 for new_id in new_ids:
                     print("\t", new_id)
-                print("Vi vay se khong cap nhat du lieu nay, "
+                print("Cac gia tri do se khong duoc cap nhat vao co so du lieu, "
                       "vui long kiem tra lai sau")
 
+                # Luu vao danh sach Unknow ID
                 result = Result(stock, False, "unknow_id", str(int_time_type))
-
                 unknow_id.append(result)
-            finally:
-                print("Chuyen qua lay du lieu cua bao cao khac...")
+
+            # Lay cac gia tri co ID hop le
+            col_truck = col_truck[col_truck.index.isin(cafef_id.index)]
+
+            # Cap nhat lai ID: ID Cafef -> ID Chung
+            col_truck.rename(cafef_id["general_id"], inplace=True)
+
+            # Kiem tra lai sau khi cap nhat ID thi co van de gi khong
+            col_truck = deal_with_data.solve_duplicate_index(col_truck)
+
+            print("Hoan tat cap nhat Index")
+
+            # Luu vao bien chua ket qua tam
+            tbl_frame[str(int_time_type)] = col_truck
+
+            print("Chuyen qua lay du lieu cua bao cao khac...")
 
         separate_print("WRITE TO TABLE")
         print("Da hoan tat viec lay du lieu")

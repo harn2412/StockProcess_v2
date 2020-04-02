@@ -13,8 +13,11 @@ def solve_duplicate_index(data: pandas.Series):
     print("WARNING: Phat hien co Index bi trung")
     print("Dang tim cach xu ly...")
 
-    # bi trung nhung chua du lieu giong nhau thi giu lay
-    print("Loc va giu lai cac Index trung nhung co cung gia tri")
+    # "bi trung nhung chua du lieu giong nhau" hoac "chi co mot gia tri, con
+    # cac hang khac la NaN" thi giu lay
+
+    print("Loc va giu lai cac Index 'trung nhung co cung gia tri' "
+          "sau khi da loai bo cac gia tri NaN")
 
     # du lieu cua cac unique index
     data_of_unique_index = data.loc[data.index.drop_duplicates(keep=False)]
@@ -25,8 +28,12 @@ def solve_duplicate_index(data: pandas.Series):
     for index in duplicate_index:
         data_of_that_index = data[index]
 
-        if data_of_that_index.nunique(dropna=False) != 1:
+        if data_of_that_index.nunique() != 1:
             print(f"Loai bo [{index}] vi chua nhieu du lieu khac nhau")
+            continue
+
+        # Loai bo gia tri NaN
+        data_of_that_index.dropna(inplace=True)
 
         print(f"Giu lay [{index}] = {data_of_that_index[0]}")
         keep_index.append(index)
